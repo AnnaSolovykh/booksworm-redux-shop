@@ -1,38 +1,221 @@
-.App {
-  text-align: center;
-}
+/* header */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.present-box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: rgb(192, 38, 38);
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.present-text {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.present {
+  width: 6rem;
+  opacity: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  height: 10vh;
+}
+
+.link {
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: rgb(21, 103, 76);
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+
+h1 {
+  font-size: 60px;
+  letter-spacing: 0.2em;
+}
+
+/* selectors */
+
+.categories-box{
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+
+.categoryButton {
+  cursor: pointer;
+  padding: 2px 12px;
+  margin: 10px 0;
+  color: rgb(21, 103, 76);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+}
+
+.categoryButton:hover {
+  background-color: rgba(21, 103, 76, 0.771);
+  color: #eee;
+  
+}
+
+
+.categoryButtonSelected {
+  background-color:  rgb(21, 103, 76);
+  color: #eee;
+}
+
+/* books */
+
+.line {
+  border-bottom: 1px solid #eee;
+  height: 10px;
+}
+
+.book-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px;
+}
+
+.book-info-box {
+  width: 40%;
+  margin: 0 40px;
+}
+
+.book-image-box {
+  width: 20%;
+}
+
+.book-image {
+  width: 15rem;
+  
+}
+
+.book-name {
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  font-size: 30px;
+}
+
+.book-author {
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  font-size: 20px;
+}
+
+.book-price {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  font-size: 30px;
+}
+
+.description-box {
+  width: 40%;
+  align-self: flex-start;
+}
+
+.book-description {
+  font-size: 15px;
+  line-height: 1.3rem;
+}
+
+.show-more-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: rgba(20, 85, 63, 0.993);
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+
+.quantity-box {
+  margin: 10px 0;
+  vertical-align: center;
+}
+
+.quantity-number {
+  font-weight: 800;
+  font-size: 30px;
+  margin:  0 10px;
+}
+.quantity-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.add-to-cart-btn {
+  font-size: 17px;
+  background-color:rgba(20, 85, 63, 0.993);
+  border: none;
+  color: whitesmoke;
+  padding: 7px 15px;
+  border-radius: 5px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color:rgba(20, 85, 63, 0.823);
+}
+
+/* Cart */
+.cart-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cart {
+  border: 3px solid #eee;
+  width: 70%;
+}
+
+.cart-box {
+  border-bottom: 2px dotted #eee;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+}
+
+
+.icon {
+  cursor: pointer;
+}
+
+.cart-name {
+  width: 20%;
+  text-align: center;
+  font-weight: 400;
+}
+
+.total-price {
+  text-align: right;
+  margin-right: 30px;
+  font-size: 22px;
 }
