@@ -12,7 +12,6 @@
 }
 
 
-
 .present {
   width: 6rem;
   opacity: 0;
@@ -187,6 +186,14 @@ h1 {
 .cart-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cart-title {
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  font-size: 30px;
 }
 
 .cart {
