@@ -6,6 +6,15 @@ const Cart = () => {
 
     const cartItems = useSelector( getCartItems );
     const totalPrice = useSelector ( getTotalPrice );
+   console.log( cartItems.length )
+
+    /*const totalCart = () => {
+        let totalCount = 0; 
+        for (let i in getCartItems) {
+            totalCount += getCartItems[i].totalCount
+        }
+        return totalCount
+    }*/
 
     return (
         <div className="cart-wrapper">
@@ -17,6 +26,8 @@ const Cart = () => {
             )}
             
            <h3 className="total-price">Total price: $ {totalPrice}</h3>
+           <h3>Total number: { cartItems.length }</h3>
+        
             </div>
         </div>
     )

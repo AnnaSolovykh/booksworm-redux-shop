@@ -1,14 +1,8 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
 const ChangeQuantity = ({ quantity, setQuantity}) => {
 
     const addQuantity = () => {
         const newQuantity = quantity + 1;
         setQuantity(newQuantity)
-        const notify = () => toast("The book is added to your basket!");
-            notify()
     }
 
     const reduceQuantity = () => {
@@ -16,8 +10,6 @@ const ChangeQuantity = ({ quantity, setQuantity}) => {
 
         const newQuantity = quantity - 1;
         setQuantity(newQuantity);
-        const notify = () => toast("The book is removed from your basket!");
-            notify()
     }
 
     return (
@@ -29,7 +21,6 @@ const ChangeQuantity = ({ quantity, setQuantity}) => {
             <button className="quantity-btn" onClick={ addQuantity }>
                 <img src= {process.env.PUBLIC_URL + "extra/plus.png"}  alt="plus" width="18rem"/>
             </button>
-            <ToastContainer />
         </div>
     )
 }

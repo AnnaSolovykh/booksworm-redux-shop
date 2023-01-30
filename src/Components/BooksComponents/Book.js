@@ -19,19 +19,19 @@ const Book = ({book}) => {
     const [quantity, setQuantity] = useState(1);
 
     const cartItems = useSelector( getCartItems  )
-    //console.log (cartItems)
+    console.log (cartItems.length)
     const booksInCart = cartItems.some ( item => item.id === book.id)
-   //console.log (booksInCart)
+    console.log (booksInCart)
 
 
     const putToCart = () => {
         if (!booksInCart) {
             dispatch (addItemToCart ( {book, quantity} )) 
-            const notify = () => toast("The book is added to your basket!");
+            const notify = () => toast("Added to your basket!");
             notify()
         } else {
             dispatch (updateQuantity ( {book, quantity} ) )
-            const notify = () => toast("The book is added to your basket!");
+            const notify = () => toast("Added to your basket!");
             notify()
         }
     }

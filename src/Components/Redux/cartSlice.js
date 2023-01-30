@@ -5,6 +5,7 @@ export const cartSlice = createSlice ({
     name: 'cart',
     initialState: {
         cartItems: [],
+
     },
 
     reducers: {
@@ -13,7 +14,6 @@ export const cartSlice = createSlice ({
                 ...action.payload.book,
                 quantity: action.payload.quantity,
                 totalPrice: action.payload.quantity * action.payload.book.price,
-                
             }
             )
         },
@@ -24,11 +24,14 @@ export const cartSlice = createSlice ({
                 if (item.id === action.payload.book.id) {
                     let countNew = item.quantity + action.payload.quantity
                     let totalSum = item.price * countNew;
-                    const changeCart = { ...item, quantity: countNew, totalPrice: totalSum };
+                    const changeCart = { 
+                        ...item, 
+                        quantity: countNew, 
+                        totalPrice: totalSum };
                     newCart.push ( changeCart );
-                } else {
+                } 
+                else {
                     newCart.push(item)
-                    
                 }
             })
             state.cartItems = newCart;
@@ -40,13 +43,6 @@ export const cartSlice = createSlice ({
             )
         },
 
-       /* getTotals(state, action) {
-            let {total, quantity} = state.cartItems.reduce(
-                (cartTotal, cartItem) => {
-                    const {price, quantity} = cartItem
-                }
-            )
-        }*/
 
     }
 })
