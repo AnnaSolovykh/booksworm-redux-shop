@@ -16,8 +16,8 @@ const Promo = () => {
         }, app);
         
         const onMove = () => {
-        gsap.to(".present", {delay: 7, duration: 1, opacity: 0})
-        gsap.to(".present-text", {delay: 7,duration: 1, text: 'Do not miss your "LUCK"!', ease: "power1"})
+        gsap.to(".present", {delay: 5, duration: 1, opacity: 0})
+        gsap.to(".present-text", {delay: 7, duration: 0.5, text: 'Do not miss your "LUCK"!', ease: "power2"})
         };
         window.addEventListener("pointermove", onMove);
 

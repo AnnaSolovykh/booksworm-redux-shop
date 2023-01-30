@@ -32,8 +32,21 @@ nav {
   font-weight: 500;
 }
 
+
 .link:hover {
   color: rgb(21, 103, 76);
+}
+
+.basket-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-number {
+  font-size: 20px;
+  
 }
 
 
@@ -196,6 +209,31 @@ h1 {
   font-size: 30px;
 }
 
+.subTitle {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: 40px;
+  color:rgb(20, 85, 63);
+}
+.empty-cart-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-btn {
+  border: none;
+  padding: 20px 10px;
+  border-radius: 20px;
+  width:300px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  color:rgb(20, 85, 63);
+  background-color: rgba(194, 55, 55, 0.257);
+  cursor: pointer;
+}
+
 .cart {
   border: 3px solid #eee;
   width: 70%;
@@ -221,8 +259,50 @@ h1 {
   font-weight: 400;
 }
 
-.total-price {
+.promo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  height: 140px;
+  justify-content: space-around;
+  width: 60%;
+
+}
+
+.promo-input {
+  width: 40%;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(20, 85, 63);;
+  background-color: rgba(220, 200, 200, 0.345);
+  font-weight: 400;
+  font-size: 15px;
+
+}
+
+.promo-btn {
+  width: 35%;
+  margin-top: 20px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: none;
+  color:rgb(20, 85, 63);
+  background-color: rgba(194, 55, 55, 0.257);
+  font-weight: 800;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.promo-btn:hover {
+  background-color: rgba(194, 55, 55, 0.176);
+}
+
+.total {
   text-align: right;
   margin-right: 30px;
-  font-size: 22px;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color:rgb(20, 85, 63);
 }

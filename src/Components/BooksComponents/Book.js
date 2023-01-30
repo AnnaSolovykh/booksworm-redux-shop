@@ -19,9 +19,9 @@ const Book = ({book}) => {
     const [quantity, setQuantity] = useState(1);
 
     const cartItems = useSelector( getCartItems  )
-    console.log (cartItems.length)
+
     const booksInCart = cartItems.some ( item => item.id === book.id)
-    console.log (booksInCart)
+
 
 
     const putToCart = () => {

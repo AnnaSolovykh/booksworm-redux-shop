@@ -4,6 +4,9 @@ import Home from './Home';
 import Cart from './Components/Cart/Cart';
 import Signin from './Signin';
 import Like from './Likes/Like';
+import { useSelector } from "react-redux";
+import { getTotalQuantity } from './Components/Redux/cartSlice';
+
 
 import {
 
@@ -21,6 +24,9 @@ import {
 
 
 function App() {
+
+  const totalQuantity = useSelector ( getTotalQuantity )
+
   return (
     <div>
       <Promo />
@@ -30,7 +36,14 @@ function App() {
       <Link to="/" className='link'>HOME</Link>
       <Link to="/Signin" className='link'>SIGN IN/REGISTER</Link>
       <Link to="/Likes/Like" className='link'>WISH LIST</Link>
-      <Link to="/Cart" className='link'> <img src= {process.env.PUBLIC_URL + "extra/basket.png"}  alt="a basket" width="60rem"/></Link>
+      <Link to="/Cart" className='link'> 
+      <div className='basket-box'>
+        <img src= {process.env.PUBLIC_URL + "extra/basket.png"}  alt="a basket" width="50rem"/> 
+        <span className='link-number'>{totalQuantity} </span>
+      </div>
+      </Link>
+
+
     </nav>
 
     <div className='container'>
