@@ -23,15 +23,32 @@ const Book = ({book}) => {
     const booksInCart = cartItems.some ( item => item.id === book.id)
 
 
-
     const putToCart = () => {
         if (!booksInCart) {
             dispatch (addItemToCart ( {book, quantity} )) 
-            const notify = () => toast("Added to your basket!");
+            const notify = () => toast.success("Added to your basket!", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             notify()
         } else {
             dispatch (updateQuantity ( {book, quantity} ) )
-            const notify = () => toast("Added to your basket!");
+            const notify = () => toast.success("Added to your basket!", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
             notify()
         }
     }
@@ -52,10 +69,19 @@ const Book = ({book}) => {
                 <h3 className="book-price">$ {book.price}</h3> 
                 <ChangeQuantity quantity={quantity} setQuantity={setQuantity}/>   
                 <button className="add-to-cart-btn" onClick= { putToCart } >Add to cart</button>
-                <ToastContainer />
-                <br>
-                </br>
-                <img src= {process.env.PUBLIC_URL + "extra/favourite.png"}  alt="a gift" width="40rem"/>
+                <ToastContainer 
+
+position="top-right"
+autoClose={1000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+             />
                 
             </div>
 

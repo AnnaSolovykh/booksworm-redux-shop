@@ -3,13 +3,11 @@ import { getCartItems, getTotalPrice } from "../Redux/cartSlice";
 import CartItem from "./CartItem";
 import { getTotalQuantity } from "../Redux/cartSlice";
 import { Link} from "react-router-dom";
-//import { useEffect, useState, useDispatch } from "react";
 import { useState } from "react";
 import swal from 'sweetalert';
 
 
 const Cart = () => {
-  //  const dispatch = useDispatch();
 
     const cartItems = useSelector( getCartItems );
     const totalPrice = useSelector ( getTotalPrice );
@@ -27,12 +25,16 @@ const Cart = () => {
     }
     */
     const [value, setValue] = useState();
-    const [discount,setDiscount]=useState(0)
+    const [discount,setDiscount]=useState(0);
+    
     
     function changeValue(e) {
-        setValue(e.target.value.toUpperCase()); 
-        e.preventDefault();
+        setValue(e.target.value.toUpperCase());     
+    }
 
+    function submitValue(e) {
+        addPromo()
+        e.preventDefault();
     }
 
     const addPromo = () => {
@@ -42,10 +44,6 @@ const Cart = () => {
         else {swal("Oh no!", "This promocode does not exist!", "success");
             }
     }
-/*
-    useEffect(() => {
-        dispatch(getTotalPrice());
-    }, [cartItems, dispatch]);*/
 
     const totalWithDiscount = totalPrice - totalPrice * (discount/100)
 
@@ -70,11 +68,12 @@ const Cart = () => {
                 <h3 className="total">Total price: $ {fixedTotalPrice}</h3>
             {/* <h3>Total number: { getTotalQuantity().totalQuantity }</h3>  */}
                 <h3 className="total">Total number of items: { totalQuantity } </h3> 
-                <div className="promo-box">
-                    <input className="promo-input" placeholder="Type your promo code..." value={value} onChange={changeValue} />
-                    <button className="promo-btn" onClick={addPromo}>Add</button>
+                <form onSubmit={submitValue} className="promo-box">
+                    <input className="promo-input"  placeholder="Type your promo code..." value={value} onChange={changeValue} />
+                    <input className="promo-btn"  type="submit" value="Submit"/>
+                    {/* <button className="promo-btn" onClick={addPromo}>Add</button> */}
                     <h3 className="total">Final price with the discount: $ {totalWithDiscount}</h3>
-                </div>
+                </form>
         
             </div>
             )}

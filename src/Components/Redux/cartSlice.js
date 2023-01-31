@@ -36,27 +36,46 @@ export const cartSlice = createSlice ({
             state.cartItems = newCart;
         },
 
+        incrementQuantityInCart: (state, action) => {
+            const item = state.cartItems.find( (item) => 
+                item.id === action.payload.cartItemId
+            )
+            item.quantity ++;
+        },
+
+        decrementQuantityInCart: (state, action) => {
+            const item = state.cartItems.find ( (item) => 
+            item.id === action.payload.cartItemId
+            )
+            if (item.quantity === 1) {
+                item.quantity =1 
+            } else {
+                item.quantity --;
+            }
+        },
+
         removeItemFromCart: (state, action) => {
             state.cartItems = state.cartItems.filter (
                 cartItem => cartItem.id !== action.payload.cartItemId
             )
         },
 
-        
+
     }
 })
-
+/*
 export const getTotalPrice = state => {
     return state.cart.cartItems.reduce( (total, cartItems) => {
         return cartItems.totalPrice + total 
     },0 )
-}
-/*
-export const discount = state => {
-    let newTotalPrice = getTotalPrice * 0.2
-    return newTotalPrice
-    
 }*/
+export const getTotalPrice = state =>  {
+    let totalPrice = 0
+    state.cart.cartItems.forEach( item => {
+        totalPrice += item.price * item.quantity
+    })
+    return totalPrice
+}
 
 export const getTotalQuantity = state  => {
     let totalQuantity = 0;
@@ -70,5 +89,5 @@ export const getTotalQuantity = state  => {
 
 export const getCartItems = state => state.cart.cartItems;
 
-export const { addItemToCart, removeItemFromCart, updateQuantity } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, updateQuantity, incrementQuantityInCart, decrementQuantityInCart } = cartSlice.actions;
 export default cartSlice.reducer;

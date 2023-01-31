@@ -41,7 +41,7 @@ const Promo = () => {
     return (
         
         <div ref={app} className='present-box'>
-            <img className="present" onClick={ promocode } src= {process.env.PUBLIC_URL + "extra/present.png"}  alt="a gift" />
+            <img className="present" onClick={ promocode } src= {process.env.PUBLIC_URL + "extra/present.jpeg"}  alt="a gift" />
             <h3 className='present-text'>Tap on the present to get it!</h3>
         </div>
         
