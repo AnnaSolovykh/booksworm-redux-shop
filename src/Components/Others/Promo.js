@@ -12,11 +12,11 @@ const Promo = () => {
     useLayoutEffect( () => {
         let ctx = gsap.context( () => {
             gsap.to(".present-text", {scale: 1.5})
-            gsap.to(".present", {delay: 0.5,rotation: 360, y:600, duration: 4, opacity: 1, scale: 2, ease: "bounce"})
+            gsap.to(".present", {delay: 0.5,rotation: 360, y:600, duration: 2, opacity: 1, scale: 2, ease: "bounce"})
         }, app);
         
         const onMove = () => {
-        gsap.to(".present", {delay: 7, duration: 2, opacity: 0, display: "none"})
+        gsap.to(".present", {delay: 6, duration: 1, opacity: 0, display: "none"})
         gsap.to(".present-text", {delay: 7, duration: 0.5, text: 'Do not miss your "LUCK"!', ease: "power2"})
         };
         window.addEventListener("pointermove", onMove);

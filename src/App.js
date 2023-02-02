@@ -35,10 +35,10 @@ function App() {
         <Router>
     <nav className={isMobile ? "nav-links-mobile" : "nav-links"} 
       onClick={ () => setIsMobile (false)}>
-        <Link to="/" className='link'>HOME</Link>
-        <Link to="/Signin" className='link'>SIGN IN/REGISTER</Link>
+        <Link to="/" className='link link-mobile'>HOME</Link>
+        <Link to="/Signin" className='link link-mobile'>SIGN IN/REGISTER</Link>
     
-      <Link to="/Cart" className='link'> 
+      <Link to="/Cart" className='link link-mobile'> 
       <div className='basket-box'>
         <img src= {process.env.PUBLIC_URL + "extra/basket.png"}  alt="a basket" width="35rem"/> 
         <span className='link-number'>{totalQuantity} </span>

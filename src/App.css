@@ -23,10 +23,11 @@
   align-items: center;
   border-bottom: 1px solid #eee;
   height: 10vh;
+  margin-right: 30px;
 }
 
 .link {
-  margin: 10px;
+  margin: 20px;
   text-decoration: none;
   color: black;
   font-weight: 500;
@@ -87,18 +88,20 @@ h1 {
 
     .nav-links-mobile {
       position: absolute;
-      top: 70px;  
+      top: 60px;  
       display: flex;
       flex-direction: column;
-      background-color: white;
+      justify-content: center;
+      height: 100%;
+      background-color: rgb(192, 38, 38);
       right: 0;
       transition: all 0.5s ease-out;
       width: 100%;
   
     }
 
-    .link {
-      color: rgb(20, 85, 63);
+    .link-mobile {
+      color: white;
       text-align: center;
       padding: 32px;
       width: 100%;
@@ -142,13 +145,17 @@ h1 {
       z-index: 10;
 
     }
+
+    .basket-box {
+      display: none;
+    }
 }
 
 
 @media all and (max-width: 500px) {
 
   .nav-links-mobile {
-    top: 70px;  
+    top: 60px;  
 
   }
 
@@ -160,7 +167,7 @@ h1 {
   .present-text {
     font-size: 12px;
     margin: 0;
-    width: 50%;
+    width: 60%;
   }
 
   .present {
@@ -360,14 +367,21 @@ h1 {
 }
 
 .quantity-number {
-  font-weight: 800;
-  font-size: 30px;
+  font-weight: 400;
+  font-size: 27px;
   margin:  0 10px;
+  flex: 1;
+
+  line-height: 1;
+  vertical-align: center;
 }
 .quantity-btn {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  flex: 1;
+  line-height: 1;
+  vertical-align: center;
 }
 
 .add-to-cart-btn {
@@ -466,6 +480,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
 }
 
 .cart-title {
@@ -494,14 +509,26 @@ h1 {
   font-size: 20px;
   font-weight: 800;
   letter-spacing: 0.3em;
-  color:rgb(20, 85, 63);
-  background-color: rgba(194, 55, 55, 0.257);
+  background-color: rgba(194, 55, 55, 0.392);
   cursor: pointer;
 }
+
+.cart-link {
+  color:rgb(24, 89, 67);
+  margin: 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cart-btn:hover {
+  background-color: rgba(194, 55, 55, 0.583);
+}
+
 
 .cart {
   border: 3px solid #eee;
   width: 70%;
+  margin-bottom: 20px;
 }
 
 .cart-box {
@@ -513,8 +540,17 @@ h1 {
   font-size: 19px;
 }
 
+.cart-inner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
 .cart-image {
-  width: 1rem;
+  width: 5rem;
 
 }
 
@@ -523,7 +559,6 @@ h1 {
 }
 
 .cart-name {
-  width: 20%;
   text-align: center;
   font-weight: 400;
 }
@@ -581,14 +616,21 @@ h1 {
   color:rgb(20, 85, 63);
 }
 
- .cart-image, .cart-price, .cart-name, .quantity-box, .icon-box {
+.cart-price {
+  font-size: 22px;
+}
+
+ .cart-image-wrapper, .cart-price-wrapper, .cart-inner, .cart-delete-wrapper {
   flex: 1;
+  display: flex;
+  justify-content: center;
+
 } 
 
 .cart-image,.cart-name, .quantity-box  {
   padding: 0 50px ;
 }
-
+ 
 
 @media all and (max-width: 850px) {
   .cart-image,.cart-name, .quantity-box  {
@@ -608,6 +650,16 @@ h1 {
   .cart {
     width: 90%;
     margin: auto;
+    
+  }
+
+  .empty-cart-box {
+    width: 80%;
+  }
+
+  .cart-title  {
+    font-size: 20px;
+    text-align: center;
   }
 
   .cart-box {
@@ -618,32 +670,37 @@ h1 {
     padding: 0 5px ;
   }
   
-  .cart-price, .quantity-number-cart {
-    font-size: 10px;
+  .cart-price, .cart-name {
+    font-size: 18px;
+
   } 
-  .cart-name {
-    font-size: 8px;
+
+  .cart-inner {
+    flex: 2;
+  }
+
+  .cart-price-wrapper {
+    flex: 2;
+  }
+
+  .quantity-number {
+    margin: 0;
+    font-size: 18px;
   }
 
   .symbol {
-    width: 0.5rem;
+    width: 0.8rem;
   }
 
-  .cart-image, .icon {
+  .icon {
     width: 1rem;
   }
 
-  .quantity-box {
-    margin: 0;
-    margin-bottom: 9px;
-  }
-  
-  .quantity-number {
-    margin: 0;
-    font-size: 15px;
+  .cart-image {
+    width: 3rem;
   }
 
-  
+
   .subTitle {
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -656,27 +713,13 @@ h1 {
 
   .promo-input {
     width: 70%;
-    padding: 7px 10px;
-    border-radius: 5px;
-    border: 1px solid rgb(20, 85, 63);;
-    background-color: rgba(220, 200, 200, 0.345);
-    font-weight: 400;
     font-size: 12px;
-    text-align: center;
-    margin-top: 20px;
   }
   
   .promo-btn {
     width: 35%;
-    margin-top: 20px;
-    padding: 7px 10px;
-    border-radius: 5px;
-    border: none;
-    color:rgb(20, 85, 63);
-    background-color: rgba(194, 55, 55, 0.257);
-    font-weight: 800;
-    cursor: pointer;
-    text-transform: uppercase;
     font-size: 12px;
   }
+
+
 }
