@@ -616,6 +616,8 @@ h1 {
   color:rgb(20, 85, 63);
 }
 
+
+
 .cart-price {
   font-size: 22px;
 }
@@ -689,7 +691,7 @@ h1 {
   }
 
   .symbol {
-    width: 0.8rem;
+    width: 0.6rem;
   }
 
   .icon {

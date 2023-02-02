@@ -24,7 +24,7 @@ const CartItem = ( {cartItem} ) => {
                 <button className="quantity-btn " onClick={ () => dispatch(decrementQuantityInCart ( {cartItemId: cartItem.id} )) } > 
                     <img className="symbol" src= {process.env.PUBLIC_URL + "extra/minus.png"}  alt="minus" />
                 </button>
-                <span className="quantity-number  ">{cartItem.quantity}</span>
+                <span className="quantity-number ">{cartItem.quantity}</span>
                 <button className="quantity-btn" onClick={ () => dispatch(incrementQuantityInCart ( {cartItemId: cartItem.id}))}>
                     <img className="symbol" src= {process.env.PUBLIC_URL + "extra/plus.png"}  alt="plus" />
                 </button>
