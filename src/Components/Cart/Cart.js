@@ -3,7 +3,7 @@ import { getCartItems, getTotalPrice } from "../Redux/cartSlice";
 import CartItem from "./CartItem";
 import { getTotalQuantity } from "../Redux/cartSlice";
 import { Link} from "react-router-dom";
-import { useState } from "react";
+import {  useState } from "react";
 import swal from 'sweetalert';
 
 
@@ -14,19 +14,10 @@ const Cart = () => {
     const fixedTotalPrice = totalPrice.toFixed(2)
     const totalQuantity = useSelector ( getTotalQuantity )
 
-/*
-    const getTotalQuantity = () => {
-        let totalQuantity = 0;
-        cartItems.forEach( item => {
-            totalQuantity += item.quantity;
-        })
-        return {totalQuantity}
-        
-    }
-    */
-    const [value, setValue] = useState();
+
+    const [value, setValue] = useState("");
     const [discount,setDiscount]=useState(0);
-    
+
     
     function changeValue(e) {
         setValue(e.target.value.toUpperCase());     
@@ -41,12 +32,12 @@ const Cart = () => {
         if (value === "LUCK") {
             setDiscount(20)
         }
-        else {swal("Oh no!", "This promocode does not exist!", "success");
+        else {swal("Oh no!", "This promocode does not exist!", "error");
             }
     }
 
-    const totalWithDiscount = totalPrice - totalPrice * (discount/100)
-
+    const totalWithDiscount = (totalPrice - totalPrice * (discount/100)).toFixed(2)
+   
 
     return (
         <div className="cart-wrapper">
@@ -65,14 +56,14 @@ const Cart = () => {
                     (cartItem, index) => <CartItem key={index} cartItem={cartItem}/>
                 )}
         
-                <h3 className="total">Total price: $ {fixedTotalPrice}</h3>
+                <h3 className="total">Subtotal: $ {fixedTotalPrice}</h3>
             {/* <h3>Total number: { getTotalQuantity().totalQuantity }</h3>  */}
                 <h3 className="total">Total number of items: { totalQuantity } </h3> 
                 <form onSubmit={submitValue} className="promo-box">
-                    <input className="promo-input"  placeholder="Type your promo code..." value={value} onChange={changeValue} />
-                    <input className="promo-btn"  type="submit" value="Submit"/>
+                    <input className="promo-input"  placeholder="Type your promo code..." value={value} onChange={ changeValue} />
+                    <input className="promo-btn"  type="submit" value="Add"/>
                     {/* <button className="promo-btn" onClick={addPromo}>Add</button> */}
-                    <h3 className="total">Final price with the discount: $ {totalWithDiscount}</h3>
+                    <h3 className="total">Total: $ {totalWithDiscount}</h3>
                 </form>
         
             </div>

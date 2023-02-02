@@ -71,18 +71,19 @@ const Book = ({book}) => {
                 <button className="add-to-cart-btn" onClick= { putToCart } >Add to cart</button>
                 <ToastContainer 
 
-position="top-right"
-autoClose={1000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
+                    position="top-right"
+                    autoClose={1000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
              />
                 
+            </div>
             </div>
 
             <div className="description-box">
@@ -92,7 +93,7 @@ theme="light"
                 </p>
             </div>
             
-        </div>
+        
 
         <div className="line"></div>
         </div>

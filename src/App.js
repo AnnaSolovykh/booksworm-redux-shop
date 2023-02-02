@@ -18,6 +18,7 @@ import {
   Link
 
 } from "react-router-dom";
+import { useState } from 'react';
 
 
 
@@ -25,27 +26,46 @@ import {
 function App() {
 
   const totalQuantity = useSelector ( getTotalQuantity )
+  const [isMobile, setIsMobile] = useState(false)
 
   return (
     <div>
       <Promo />
     
         <Router>
-    <nav>
-      <Link to="/" className='link'>HOME</Link>
-      <Link to="/Signin" className='link'>SIGN IN/REGISTER</Link>
+    <nav className={isMobile ? "nav-links-mobile" : "nav-links"} 
+      onClick={ () => setIsMobile (false)}>
+        <Link to="/" className='link'>HOME</Link>
+        <Link to="/Signin" className='link'>SIGN IN/REGISTER</Link>
+    
       <Link to="/Cart" className='link'> 
       <div className='basket-box'>
-        <img src= {process.env.PUBLIC_URL + "extra/basket.png"}  alt="a basket" width="50rem"/> 
+        <img src= {process.env.PUBLIC_URL + "extra/basket.png"}  alt="a basket" width="35rem"/> 
         <span className='link-number'>{totalQuantity} </span>
       </div>
       </Link>
 
-
     </nav>
 
+
     <div className='container'>
-          <h1>Bookworm</h1>
+      <Link to="/" className='h1-default'> <h1>Bookworm</h1></Link> 
+
+      <Link to="/Cart" className='basket-link'> 
+        <div className='basket-box-mobile'>
+          <img src= {process.env.PUBLIC_URL + "extra/basket.png"}  alt="a basket" width="23rem"/> 
+          <span className='link-number'>{totalQuantity} </span>
+        </div>
+      </Link>
+
+      <button className='mobile-menu-icon'
+          onClick={ () => setIsMobile(!isMobile)}>
+          {isMobile ? (
+            <i className="fas fa-times"></i>
+          ):(
+            <i className="fas fa-bars"></i>
+          )}
+      </button>
     </div>
 
     <Routes>
@@ -54,6 +74,8 @@ function App() {
       <Route path="/Cart" element={<Cart/>}/>
     </Routes>
     </Router>
+
+    
 
     </div>
   );

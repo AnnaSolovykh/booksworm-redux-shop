@@ -15,11 +15,11 @@ const ChangeQuantity = ({ quantity, setQuantity}) => {
     return (
         <div className="quantity-box">
             <button className="quantity-btn" onClick={ reduceQuantity }> 
-                <img src= {process.env.PUBLIC_URL + "extra/minus.png"}  alt="minus" width="18rem"/>
+                <img className="symbol-quantity-book"  src= {process.env.PUBLIC_URL + "extra/minus.png"}  alt="minus" />
             </button>
-            <span className="quantity-number">{quantity}</span>
+            <span className="quantity-number-book">{quantity}</span>
             <button className="quantity-btn" onClick={ addQuantity }>
-                <img src= {process.env.PUBLIC_URL + "extra/plus.png"}  alt="plus" width="18rem"/>
+                <img className="symbol-quantity-book"   src= {process.env.PUBLIC_URL + "extra/plus.png"}  alt="plus"/>
             </button>
         </div>
     )
