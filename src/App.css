@@ -81,7 +81,6 @@ h1 {
 }
 
 @media all and (max-width: 950px) {
-
     .nav-links {
       display: none;
     }
@@ -97,7 +96,6 @@ h1 {
       right: 0;
       transition: all 0.5s ease-out;
       width: 100%;
-  
     }
 
     .link-mobile {
@@ -108,9 +106,7 @@ h1 {
       transition: all 0.5s ease-out;
       font-size: 20px;
       font-weight: 600;
-
     }
-
 
     .container {
       justify-content: space-around;
@@ -145,6 +141,7 @@ h1 {
       z-index: 10;
 
     }
+
 
     .basket-box {
       display: none;
