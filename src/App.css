@@ -617,7 +617,6 @@ h1 {
 }
 
 
-
 .cart-price {
   font-size: 22px;
 }
@@ -636,7 +635,7 @@ h1 {
 
 @media all and (max-width: 850px) {
   .cart-image,.cart-name, .quantity-box  {
-    padding: 0 30px ;
+    padding: 2px 10px ;
   }
 
   .cart-box {
@@ -665,20 +664,16 @@ h1 {
   }
 
   .cart-box {
-    padding: 10px;
+    padding: 1px;
   }
  
-  .cart,.cart-name, .quantity-box  {
-    padding: 0 5px ;
-  }
-  
   .cart-price, .cart-name {
     font-size: 18px;
 
   } 
 
   .cart-inner {
-    flex: 2;
+    flex: 3;
   }
 
   .cart-price-wrapper {
@@ -691,7 +686,7 @@ h1 {
   }
 
   .symbol {
-    width: 0.6rem;
+    width: 0.7rem;
   }
 
   .icon {
