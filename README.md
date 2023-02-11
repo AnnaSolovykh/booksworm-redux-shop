@@ -28,5 +28,5 @@ Also, you can apply the promo code and reduce the total price.
 
 <img width="1728" alt="Снимок экрана 2023-02-11 в 11 59 23" src="https://user-images.githubusercontent.com/114008959/218249774-48073f76-f1a5-4ea9-957a-1e3b4f36d738.png">
 
-After mastering in Node.js, authorization and payment methods are to be added,
+After mastering in Node.js, authorization and payment methods are to be added.
 
