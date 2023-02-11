@@ -6,7 +6,7 @@ This is the Redux project of a shop.
 
 Demo: https://booksworm-redux-shop.vercel.app
 
-Visiting the page, you can first click on the present to get the promo code to decrease the total price in the cart. 
+On the main page you can first click on the present to get the promo code to decrease the total price in the cart. 
 
 Then you can filter the books by its categories, clicking on any of them.
 
