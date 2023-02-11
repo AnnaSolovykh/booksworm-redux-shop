@@ -1,71 +1,32 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # booksworm-redux-shop
+
+REDUX BOOKSHOP PROJECT
+
+This is the Redux project of a shop.
+
+Demo: https://booksworm-redux-shop.vercel.app
+
+Visiting the page, you can first click on the present to get the promo code to decrease the total price in the cart. 
+
+Then you can filter the books by its categories, clicking on any of them.
+
+<img width="1716" alt="Снимок экрана 2023-02-11 в 11 57 41" src="https://user-images.githubusercontent.com/114008959/218249763-6b22e391-0ec8-46e1-a7f0-be98c8f9bbbd.png">
+
+<img width="1698" alt="Снимок экрана 2023-02-11 в 11 57 52" src="https://user-images.githubusercontent.com/114008959/218249765-e9052373-99be-41e5-b122-4ea520a67213.png">
+
+Clicking on "show more" you can see the extended description of a book.
+
+<img width="1721" alt="Снимок экрана 2023-02-11 в 11 58 40" src="https://user-images.githubusercontent.com/114008959/218249768-ff9c6825-aaea-467a-8d03-cbcfe5593328.png">
+
+You can navigate to the cart by clicking the cart icon. There, you can change the number of each book in the cart or delete the whole item.
+
+<img width="1689" alt="Снимок экрана 2023-02-11 в 11 59 13" src="https://user-images.githubusercontent.com/114008959/218249772-33a2afd5-7f8a-40d9-aee2-810e8bc5bc06.png">
+
+Also, you can apply the promo code and reduce the total price.
+
+
+
+<img width="1728" alt="Снимок экрана 2023-02-11 в 11 59 23" src="https://user-images.githubusercontent.com/114008959/218249774-48073f76-f1a5-4ea9-957a-1e3b4f36d738.png">
+
+After mastering in Node.js, authorization and payment methods are to be added,
+
