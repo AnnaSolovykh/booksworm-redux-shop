@@ -1,4 +1,4 @@
-# REDUX BOOKSHOP PROJECT
+# Redux Bookshop Project
 
 This is the Redux project of a shop.
 
