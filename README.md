@@ -1,6 +1,6 @@
 # Redux Bookshop Project
 
-This is the Redux project of a shop.
+This is a website of a shop built with Redux
 
 Demo: https://booksworm-redux-shop.vercel.app
 
