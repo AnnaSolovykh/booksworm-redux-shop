@@ -1,6 +1,4 @@
-# booksworm-redux-shop
-
-REDUX BOOKSHOP PROJECT
+# REDUX BOOKSHOP PROJECT
 
 This is the Redux project of a shop.
 
