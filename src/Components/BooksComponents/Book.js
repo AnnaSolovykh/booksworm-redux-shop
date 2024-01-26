@@ -2,9 +2,13 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import ChangeQuantity from "../Cart/ChangeQuantity"
-import { addItemToCart, getCartItems, updateQuantity } from "../Redux/cartSlice"
+import { addItemToCart, getCartItems, updateQuantity, toggleFavorite } from "../Redux/cartSlice"
 
 import { ToastContainer, toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const Book = ({book}) => {
@@ -18,6 +22,13 @@ const Book = ({book}) => {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
 
+    const toggleFavoriteStatus = () => {
+        dispatch(toggleFavorite({ book }));
+    };
+    const isFavorite = useSelector(state => 
+        state.cart.favoriteItems?.some(item => item.id === book.id)
+    );
+    
     const cartItems = useSelector( getCartItems  )
 
     const booksInCart = cartItems.some ( item => item.id === book.id)
@@ -25,7 +36,7 @@ const Book = ({book}) => {
 
     const putToCart = () => {
         if (!booksInCart) {
-            dispatch (addItemToCart ( {book, quantity} )) 
+            dispatch (addItemToCart ({ book, quantity })) 
             const notify = () => toast.success("Added to your basket!", {
                 position: "top-right",
                 autoClose: 1000,
@@ -69,6 +80,10 @@ const Book = ({book}) => {
                 <h3 className="book-price">$ {book.price}</h3> 
                 <ChangeQuantity quantity={quantity} setQuantity={setQuantity}/>   
                 <button className="add-to-cart-btn" onClick= { putToCart } >Add to cart</button>
+                <button className="toggle-favorite-btn" onClick={() => toggleFavoriteStatus(book)}>
+                    <FontAwesomeIcon icon={isFavorite ? fasFaHeart : farFaHeart} />
+                </button>
+
                 <ToastContainer 
 
                     position="top-right"
@@ -81,7 +96,7 @@ const Book = ({book}) => {
                     draggable
                     pauseOnHover
                     theme="light"
-             />
+            />
                 
             </div>
             </div>
