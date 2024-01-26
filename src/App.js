@@ -2,7 +2,7 @@ import './App.css';
 import Promo from './Components/Others/Promo';
 import Home from './Home';
 import Cart from './Components/Cart/Cart';
-import Signin from './Signin';
+import Register from './Components/Auth/Register';
 import { useSelector } from "react-redux";
 import { getTotalQuantity } from './Components/Redux/cartSlice';
 
@@ -70,7 +70,7 @@ function App() {
 
     <Routes>
       <Route path="/"  element={<Home/>}/>
-      <Route path="/Signin"  element={<Signin/>}/>
+      <Route path="/Register"  element={<Register/>}/>
       <Route path="/Cart" element={<Cart/>}/>
     </Routes>
     </Router>
