@@ -4,6 +4,7 @@ import Home from './Home';
 import Cart from './Components/Cart/Cart';
 import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
+import FavoriteBooks from './Components/FavoriteBooks/FavoriteBooks';
 import { useSelector } from "react-redux";
 import { getTotalQuantity } from './Components/Redux/cartSlice';
 
@@ -66,6 +67,7 @@ const App = () => {
       <Route path="/login"  element={<Login/>}/>
       <Route path="/register"  element={<Register/>}/>
       <Route path="/cart" element={<Cart/>}/>
+      <Route path="/favorite-books" element={<FavoriteBooks/>}/>
     </Routes>
     </Router>
 
