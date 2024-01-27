@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; 
 import { login } from '../../utils/fetchData';
 
 const Login = () => {
@@ -54,6 +55,10 @@ const Login = () => {
                 />
                 </div>
                 <button type="submit">Log In</button>
+                <p>
+                    Don't have an account?{' '}
+                    <Link to="/register">Register here</Link>
+                </p>
             </form>
         </div>
     );
