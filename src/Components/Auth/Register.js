@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
+import { useNavigate } from "react-router-dom";
 import { register } from '../../utils/fetchData';
 
 const Register = () => {
     const [name, setName] = useState(''); 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -19,18 +22,31 @@ const Register = () => {
         setPassword(e.target.value);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        try {
+        register(name, email, password)
+            .then(response => {
+                if(response.status === 201) {
+                    sessionStorage.setItem("jwtToken", response.data.token);
+                    sessionStorage.setItem("username", response.data.user.name);
+                    navigate('/favorite-books');
+                    setName('');
+                    setEmail('');
+                    setPassword('');
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+        /*try {
             const response = await register(name, email, password);
             console.log(response.data);
         } catch (error) {
             console.error("Error logging in:", error);
         }
-
-        setEmail('');
-        setPassword('');
+        */
     };
 
     return (
