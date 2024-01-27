@@ -2,7 +2,7 @@ import './App.css';
 import Promo from './Components/Others/Promo';
 import Home from './Home';
 import Cart from './Components/Cart/Cart';
-import Register from './Components/Auth/Register';
+import Login from './Components/Auth/Login';
 import { useSelector } from "react-redux";
 import { getTotalQuantity } from './Components/Redux/cartSlice';
 
@@ -36,7 +36,7 @@ function App() {
     <nav className={isMobile ? "nav-links-mobile" : "nav-links"} 
       onClick={ () => setIsMobile (false)}>
         <Link to="/" className='link link-mobile'>HOME</Link>
-        <Link to="/Signin" className='link link-mobile'>SIGN IN/REGISTER</Link>
+        <Link to="/Login" className='link link-mobile'>SIGN IN</Link>
     
       <Link to="/Cart" className='link link-mobile'> 
       <div className='basket-box'>
@@ -70,7 +70,7 @@ function App() {
 
     <Routes>
       <Route path="/"  element={<Home/>}/>
-      <Route path="/Register"  element={<Register/>}/>
+      <Route path="/Login"  element={<Login/>}/>
       <Route path="/Cart" element={<Cart/>}/>
     </Routes>
     </Router>
