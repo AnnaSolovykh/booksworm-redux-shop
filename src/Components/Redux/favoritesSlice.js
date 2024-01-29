@@ -11,7 +11,6 @@ export const fetchIsFavorite = createAsyncThunk(
                 return { bookId, isFavorite };            
             })
             .catch((error) => {
-                console.error("Error fetching isFavorite status:", error);
                 throw error; 
             });
         }
@@ -33,7 +32,6 @@ export const addToFavoritesAsync = createAsyncThunk(
                 return response.data; 
             })
             .catch((error) => {
-                console.log(error);
                 throw error; 
             });
     }
@@ -47,12 +45,10 @@ export const removeFromFavoritesAsync = createAsyncThunk(
                 return book.id;
             })
             .catch((error) => {
-                console.log(error);
                 throw error;
             });
     }
 );
-
 
 export const favoritesSlice = createSlice({
     name: "favorites",
@@ -93,6 +89,5 @@ export const favoritesSlice = createSlice({
 export const { setFavoriteStatus } = favoritesSlice.actions;
 export const getFavoriteStatus = (state, bookId) =>
     state.favorites.isFavorite[bookId] || false;
-
 
 export default favoritesSlice.reducer;
