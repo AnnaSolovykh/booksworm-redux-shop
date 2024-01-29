@@ -17,6 +17,14 @@ export const fetchIsFavorite = createAsyncThunk(
         }
     );
 
+export const fetchFavoriteBooksAsync = createAsyncThunk(
+        'favorites/fetchFavoriteBooks',
+        async () => {
+            const response = await getFavorites();
+            return response.data.favoriteBooks;
+        }
+    );
+
 export const addToFavoritesAsync = createAsyncThunk(
     'favorites/addBookToFavorites',
     async (book) => {
@@ -36,7 +44,6 @@ export const removeFromFavoritesAsync = createAsyncThunk(
     async (book) => {
         return removeBookFromFavorites(book.id)
             .then(() => {
-                console.log(book.id)
                 return book.id;
             })
             .catch((error) => {
@@ -61,6 +68,10 @@ export const favoritesSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+        .addCase(fetchFavoriteBooksAsync.fulfilled, (state, action) => {
+            const favoriteItems = action.payload;
+            state.favoriteItems = favoriteItems;
+        })
         .addCase(fetchIsFavorite.fulfilled, (state, action) => {
             const { bookId, isFavorite } = action.payload;
             state.isFavorite[bookId] = isFavorite;
@@ -71,7 +82,6 @@ export const favoritesSlice = createSlice({
         })
         .addCase(removeFromFavoritesAsync.fulfilled, (state, action) => {
             const removedBook = action.payload;
-            console.log(removedBook)
             state.favoriteItems = state.favoriteItems.filter(
                 (book) => book.id === removedBook
             );

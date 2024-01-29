@@ -1,19 +1,15 @@
-import { useState, useEffect } from 'react';
-import { getFavorites } from '../../utils/fetchData';
-import FavoriteBook from '../FavoriteBooks/FavoriteBook';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchFavoriteBooksAsync } from '../Redux/favoritesSlice';
+import FavoriteBook from './FavoriteBook';
 
 const FavoriteBooks = () => {
-    const [favoriteBooks, setFavoriteBooks] = useState([]);
+    const dispatch = useDispatch();
+    const favoriteBooks = useSelector((state) => state.favorites.favoriteItems);
+
     useEffect(() => {
-        getFavorites()
-        .then(response => {
-            setFavoriteBooks(response.data.favoriteBooks);
-            console.log(response.data.favoriteBooks)
-        })
-        .catch(error => {
-            console.log(error)
-        });
-    }, []);
+        dispatch(fetchFavoriteBooksAsync());
+    }, [dispatch]);
 
     return (
         <div>
