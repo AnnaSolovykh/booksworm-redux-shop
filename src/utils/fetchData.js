@@ -31,8 +31,31 @@ export const register = (name, email, password) => {
     )
 };
 
-export const getBooks = () => {
+export const getFavorites = () => {
     return axios.get(`http://localhost:4000/api/v1/books`, 
+    {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${jwtToken}`
+        }
+    });
+};
+
+export const addBookToFavorites = (book) => {
+    return axios.post(`http://localhost:4000/api/v1/books`, 
+    {
+        ...book
+    },
+    {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${jwtToken}`
+        }
+    });
+};
+
+export const removeBookFromFavorites = (bookId) => {
+    return axios.delete(`http://localhost:4000/api/v1/books/${bookId}`, 
     {
         headers: {
             "Content-Type": "application/json",

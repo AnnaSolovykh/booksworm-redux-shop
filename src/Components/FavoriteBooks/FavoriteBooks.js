@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { getBooks } from '../../utils/fetchData';
+import { getFavorites } from '../../utils/fetchData';
 import FavoriteBook from '../FavoriteBooks/FavoriteBook';
 
 const FavoriteBooks = () => {
     const [favoriteBooks, setFavoriteBooks] = useState([]);
     useEffect(() => {
-        getBooks()
+        getFavorites()
         .then(response => {
             setFavoriteBooks(response.data.favoriteBooks);
+            console.log(response.data.favoriteBooks)
         })
         .catch(error => {
             console.log(error)

@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import ChangeQuantity from "../Cart/ChangeQuantity"
-import { addItemToCart, getCartItems, updateQuantity, toggleFavorite } from "../Redux/cartSlice"
-
+import { addItemToCart, getCartItems, updateQuantity } from "../Redux/cartSlice"
+import { setFavoriteStatus, getFavoriteStatus, fetchIsFavorite, addToFavoritesAsync, removeFromFavoritesAsync } from "../Redux/favoritesSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
@@ -22,13 +22,24 @@ const Book = ({book}) => {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
 
-    const toggleFavoriteStatus = () => {
-        dispatch(toggleFavorite({ book }));
-    };
-    const isFavorite = useSelector(state => 
-        state.cart.favoriteItems?.some(item => item.id === book.id)
+    const isFavorite = useSelector((state) =>
+        getFavoriteStatus(state, book.id)
     );
-    
+
+    const toggleFavoriteStatus = () => {
+        if (isFavorite) {
+            dispatch(removeFromFavoritesAsync(book));
+            dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: false }));
+        } else {
+            dispatch(addToFavoritesAsync(book)); 
+            dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: true }));
+        }
+    };
+
+    useEffect(() => {
+        dispatch(fetchIsFavorite(book.id));
+    }, [dispatch, book.id]);
+
     const cartItems = useSelector( getCartItems  )
 
     const booksInCart = cartItems.some ( item => item.id === book.id)
@@ -80,7 +91,7 @@ const Book = ({book}) => {
                 <h3 className="book-price">$ {book.price}</h3> 
                 <ChangeQuantity quantity={quantity} setQuantity={setQuantity}/>   
                 <button className="add-to-cart-btn" onClick= { putToCart } >Add to cart</button>
-                <button className="toggle-favorite-btn" onClick={() => toggleFavoriteStatus(book)}>
+                <button className="toggle-favorite-btn" onClick={toggleFavoriteStatus}>
                     <FontAwesomeIcon icon={isFavorite ? fasFaHeart : farFaHeart} />
                 </button>
 

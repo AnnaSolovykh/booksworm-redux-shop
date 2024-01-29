@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 export const cartSlice = createSlice ({
     name: 'cart',
     initialState: {
-        cartItems: [],
-        favoriteItems: [], 
+        cartItems: []
     },
 
     reducers: {
@@ -18,20 +16,6 @@ export const cartSlice = createSlice ({
             )
         },
         
-        toggleFavorite: (state, action) => {
-            const existingIndex = state.favoriteItems.findIndex(item => item.id === action.payload.book.id);
-        
-            if (existingIndex >= 0) {
-                // Item exists in favorites, create a new array without it
-                state.favoriteItems = state.favoriteItems.filter(item => item.id !== action.payload.book.id);
-            } else {
-                // Item does not exist, add it to favorites by creating a new array
-                state.favoriteItems = [...state.favoriteItems, action.payload.book];
-            }
-            console.log(state.favoriteItems);
-        },
-        
-
         updateQuantity: (state, action) => {
             const newCart = [];
             state.cartItems.forEach( item=> {
@@ -101,7 +85,6 @@ export const getTotalQuantity = state  => {
     
 }
 
-
 export const getCartItems = state => state.cart.cartItems;
 
 export const { 
@@ -110,7 +93,6 @@ export const {
     updateQuantity, 
     incrementQuantityInCart, 
     decrementQuantityInCart,
-    toggleFavorite
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
