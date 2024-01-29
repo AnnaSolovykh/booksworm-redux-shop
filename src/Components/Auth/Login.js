@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from '../Redux/authenticationSlice';
 import { login } from '../../utils/fetchData';
 
 const Login = () => {
@@ -8,6 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -24,6 +27,7 @@ const Login = () => {
                 if(response.status === 200) {
                     sessionStorage.setItem("jwtToken", response.data.token);
                     sessionStorage.setItem("username", response.data.user.name);
+                    dispatch(setUser());
                     navigate('/favorite-books');
                     setEmail('');
                     setPassword('');
@@ -32,16 +36,6 @@ const Login = () => {
             .catch(error => {
                 console.log(error)
             })
-      /*  try {
-            const response = await login(email, password);
-            sessionStorage.setItem("jwtToken", response.data.token);
-            sessionStorage.setItem("username", response.data.user.username);
-            navigate('/');
-            console.log(response.data);
-        } catch (error) {
-            console.error("Error logging in:", error);
-        }*/
-
     };
 
     return (

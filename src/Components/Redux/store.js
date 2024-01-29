@@ -1,7 +1,9 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {thunk} from 'redux-thunk';
 import books from './booksSlice';
 import cart from './cartSlice';
 import favorites from './favoritesSlice'
+import authentication from './authenticationSlice';
 
 import storage from 'redux-persist/lib/storage';
 import {
@@ -25,7 +27,8 @@ const rootReducer = combineReducers(
     {
       cart,
       books,
-      favorites
+      favorites,
+      authentication
     }
   )
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -38,7 +41,7 @@ export const store = configureStore( {
             serializableCheck: {
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-    }),
+    }).concat(thunk),
 }
 )
 

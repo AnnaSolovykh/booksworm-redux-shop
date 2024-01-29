@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from '../Redux/authenticationSlice';
 import { register } from '../../utils/fetchData';
 
 const Register = () => {
@@ -9,6 +11,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -30,6 +33,7 @@ const Register = () => {
                 if(response.status === 201) {
                     sessionStorage.setItem("jwtToken", response.data.token);
                     sessionStorage.setItem("username", response.data.user.name);
+                    dispatch(setUser());
                     navigate('/favorite-books');
                     setName('');
                     setEmail('');
@@ -39,14 +43,6 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             })
-
-        /*try {
-            const response = await register(name, email, password);
-            console.log(response.data);
-        } catch (error) {
-            console.error("Error logging in:", error);
-        }
-        */
     };
 
     return (
