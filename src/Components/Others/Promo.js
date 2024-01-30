@@ -1,32 +1,23 @@
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 import swal from 'sweetalert';
 import { TextPlugin } from "gsap/TextPlugin";
 
 gsap.registerPlugin(TextPlugin);
 
-
 const Promo = () => {
-    const app = useRef();
+    const presentRef = useRef();
+    const textRef = useRef();
+    const hasAnimated = localStorage.getItem('hasAnimated');
 
-    useLayoutEffect( () => {
-        let ctx = gsap.context( () => {
-            gsap.to(".present-text", {scale: 1.5})
-            gsap.to(".present", {delay: 0.5,rotation: 360, y:600, duration: 2, opacity: 1, scale: 2, ease: "bounce"})
-        }, app);
-        
-        const onMove = () => {
-        gsap.to(".present", {delay: 6, duration: 1, opacity: 0, display: "none"})
-        gsap.to(".present-text", {delay: 7, duration: 0.5, text: 'Do not miss your "LUCK"!', ease: "power2"})
-        };
-        window.addEventListener("pointermove", onMove);
-
-        return () => {
-            ctx.revert(); 
-    
-            window.removeEventListener("pointermove", onMove); 
-        };
-    }, [] );
+    useEffect(() => {
+        if (!hasAnimated) {
+            gsap.to(presentRef.current, { delay: 0.5, rotation: 360, y: 600, duration: 2, opacity: 1, scale: 2, ease: "bounce" });
+            localStorage.setItem('hasAnimated', 'true');
+        } else {
+            gsap.to(textRef.current, { duration: 1, text: 'Do not miss your "LUCK"!', ease: "power2" });
+        }
+    }, [hasAnimated]);
 
     const promocode = () => {
         swal({
@@ -35,17 +26,18 @@ const Promo = () => {
             icon: "success",
             button: "Start shopping!",
             className: "swal-size-sm",
+        }).then(() => {
+            gsap.to(textRef.current, { delay: 1, duration: 1, text: 'Do not miss your "LUCK"!', ease: "power2" });
+            gsap.to(presentRef.current, { delay: 1, opacity: 0, duration: 1, display: "none" });
         });
-    }
+    };
 
     return (
-        
-        <div ref={app} className='present-box'>
-            <img className="present" onClick={ promocode } src= {process.env.PUBLIC_URL + "extra/present.png"}  alt="a gift" /> 
-            <h3 className='present-text'>Tap on the present to get it!</h3>
+        <div className='present-box'>
+            <img ref={presentRef} className="present" onClick={promocode} src={process.env.PUBLIC_URL + "extra/present.png"} alt="a gift" /> 
+            <h3 ref={textRef} className='present-text'>Tap to get the present!</h3>
         </div>
-        
-    )
-}
+    );
+};
 
 export default Promo;
