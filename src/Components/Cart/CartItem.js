@@ -5,43 +5,43 @@ import {
     decrementQuantityInCart 
 } from '../Redux/cartSlice';
 
+import styles from './styles.module.css';
 
 const CartItem = ( {cartItem} ) => {
     const dispatch = useDispatch();
     const cartItemPrice = (cartItem.price * cartItem.quantity).toFixed(2);
 
     return (
-    <div>
-        <div className="cart-box">
-            <div className="cart-image-wrapper">
-                <img className="cart-image" src={`./${cartItem.img}.jpeg`} alt="a cart item"/>
+        <>
+        <div className={styles.cartBox}>
+            <div className={styles.cartImageWrapper}>
+                <img className={styles.cartImage} src={`./${cartItem.img}.jpeg`} alt="a cart item"/>
             </div>
-
-            <div className="cart-inner">
-                <p className="cart-name">{cartItem.name}</p>
-                <div className="quantity-box">
-                    <button className="quantity-btn " onClick={ () => dispatch(decrementQuantityInCart ( {cartItemId: cartItem.id} )) } > 
-                        <img className="symbol" src= {process.env.PUBLIC_URL + "extra/minus.png"}  alt="minus" />
+    
+            <div className={styles.cartInner}>
+                <p className={styles.cartName}>{cartItem.name}</p>
+                <div className={styles.quantityBox}>
+                    <button className={`${styles.quantityBtn}`} onClick={() => dispatch(decrementQuantityInCart({ cartItemId: cartItem.id }))}>
+                        <img className={styles.symbol} src={process.env.PUBLIC_URL + "extra/minus.png"} alt="minus" />
                     </button>
-                    <span className="quantity-number ">{cartItem.quantity}</span>
-                    <button className="quantity-btn" onClick={ () => dispatch(incrementQuantityInCart ( {cartItemId: cartItem.id}))}>
-                        <img className="symbol" src= {process.env.PUBLIC_URL + "extra/plus.png"}  alt="plus" />
+                    <span className={styles.quantityNumber}>{cartItem.quantity}</span>
+                    <button className={styles.quantityBtn} onClick={() => dispatch(incrementQuantityInCart({ cartItemId: cartItem.id }))}>
+                        <img className={styles.symbol} src={process.env.PUBLIC_URL + "extra/plus.png"} alt="plus" />
                     </button>
                 </div>
             </div>
-
-            <div className="cart-delete-wrapper">
-                <span className="icon-box" onClick= { () => dispatch(removeItemFromCart( {cartItemId: cartItem.id} )) }>
-                    <img className="icon" src="https://img.icons8.com/material-outlined/48/000000/trash--v1.png" width="25rem"
-                    alt="icon"/>
+    
+            <div className={styles.cartDeleteWrapper}>
+                <span className={styles.iconBox} onClick={() => dispatch(removeItemFromCart({ cartItemId: cartItem.id }))}>
+                    <img className={styles.icon} src="https://img.icons8.com/material-outlined/48/000000/trash--v1.png" width="25rem" alt="icon"/>
                 </span>
             </div>
-
-            <div className="cart-price-wrapper">
-                <p className="cart-price">$ {cartItemPrice}</p>
+    
+            <div className={styles.cartPriceWrapper}>
+                <p className={styles.cartPrice}>$ {cartItemPrice}</p>
             </div>
         </div>
-    </div>
+        </>
     );
 };
 
