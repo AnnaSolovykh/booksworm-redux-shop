@@ -9,6 +9,7 @@ import Logout from './Components/Auth/Logout';
 import LoginModal from './Components/Others/LoginModal';
 import FavoriteBooks from './Components/FavoriteBooks/FavoriteBooks';
 import { useSelector } from "react-redux";
+import { useEffect } from 'react';
 import { getTotalQuantity } from './Components/Redux/cartSlice';
 import { selectIsLoggedIn } from './Components/Redux/authenticationSlice';
 import {
@@ -25,6 +26,15 @@ const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn); 
   const [isMobile, setIsMobile] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showPromo, setShowPromo] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = localStorage.getItem('hasVisited');
+    if (!hasVisited) {
+      setShowPromo(true);
+      localStorage.setItem('hasVisited', 'true');
+    }
+  }, []);
 
   const handleFavoriteClick = (e) => {
     if (!isLoggedIn) {
@@ -35,7 +45,7 @@ const App = () => {
 
   return (
     <div>
-      <Promo />
+      {showPromo && <Promo />}
       <Router>
         <nav 
           className={isMobile ? "nav-links-mobile" : "nav-links"} 
