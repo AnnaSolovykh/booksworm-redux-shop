@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchFavoriteBooksAsync } from '../Redux/favoritesSlice';
+import { fetchFavoriteBooksAsync,removeFromFavoritesAsync, setFavoriteStatus } from '../Redux/favoritesSlice';
 import FavoriteBook from './FavoriteBook';
 
 const FavoriteBooks = () => {
@@ -9,14 +9,20 @@ const FavoriteBooks = () => {
 
     useEffect(() => {
         dispatch(fetchFavoriteBooksAsync());
-    }, [dispatch]);
+    }, [dispatch, favoriteBooks]);
+
+    const handleRemoveFavorite = (book) => {
+        dispatch(removeFromFavoritesAsync(book));
+        dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: false }));
+    };
 
     return (
         <div>
             {favoriteBooks.map(favoriteBook => (
                 <FavoriteBook 
                     favoriteBook={favoriteBook}
-                    key={favoriteBook._id} 
+                    key={favoriteBook._id}
+                    onRemoveFavorite={handleRemoveFavorite} 
                 />
             ))}
         </div>
