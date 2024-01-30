@@ -1,3 +1,5 @@
+import styles from './styles.module.css';
+
 const ChangeQuantity = ({ quantity, setQuantity}) => {
     const addQuantity = () => {
         const newQuantity = quantity + 1;
@@ -12,13 +14,13 @@ const ChangeQuantity = ({ quantity, setQuantity}) => {
     };
 
     return (
-        <div className="quantity-box">
-            <button className="quantity-btn" onClick={ reduceQuantity }> 
-                <img className="symbol-quantity-book"  src= {process.env.PUBLIC_URL + "extra/minus.png"}  alt="minus" />
+        <div className={styles.quantityBox}>
+            <button className={styles.quantityBtn} onClick={reduceQuantity}> 
+                <img className={styles.symbolQuantityBook} src={`${process.env.PUBLIC_URL}/extra/minus.png`} alt="minus" />
             </button>
-            <span className="quantity-number-book">{quantity}</span>
-            <button className="quantity-btn" onClick={ addQuantity }>
-                <img className="symbol-quantity-book"   src= {process.env.PUBLIC_URL + "extra/plus.png"}  alt="plus"/>
+            <span className={styles.quantityNumberBook}>{quantity}</span>
+            <button className={styles.quantityBtn} onClick={addQuantity}>
+                <img className={styles.symbolQuantityBook} src={`${process.env.PUBLIC_URL}/extra/plus.png`} alt="plus"/>
             </button>
         </div>
     );

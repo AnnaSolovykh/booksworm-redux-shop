@@ -1,0 +1,157 @@
+.line {
+    border-bottom: 1px solid #eee;
+    height: 10px;
+}
+
+.bookBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px;
+}
+
+.bookInfoBox{
+    width: 50%;
+    margin: 0 40px;
+}
+
+.bookImage {
+    width: 15rem;
+}
+
+.bookName {
+    font-weight: 200;
+    letter-spacing: 0.3em;
+    font-size: 30px;
+}
+
+.bookAuthor{
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    font-size: 20px;
+}
+
+.bookPrice{
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    font-size: 30px;
+}
+
+.descriptionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+    flex-wrap: wrap;
+}
+
+.bookDescription {
+    font-size: 15px;
+    line-height: 1.3rem;
+    width: 60%;
+}
+
+.showMoreBtn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: rgba(20, 85, 63, 0.993);
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.addToCartBtn {
+    font-size: 17px;
+    background-color:rgba(20, 85, 63, 0.993);
+    border: none;
+    color: whitesmoke;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.addToCartBtn:hover {
+    background-color:rgba(20, 85, 63, 0.823);
+}
+
+.toggleFavoriteBtn {
+    border: none;
+    background-color: transparent;
+    font-size: 36px; 
+    margin-left: 5px;
+    vertical-align: sub;
+    color: var(--red-btn);
+    cursor: pointer;
+    transition: color 0.5s ease, background-color 0.3s ease;
+}
+
+.toggleFavoriteBtnClicked {
+    transform: scale(1.1);
+}
+
+@media all and (max-width: 950px) {
+    .bookImage {
+        width: 10rem;  
+    }
+    .bookName {
+        letter-spacing: 0.2em;
+        font-size: 20px;
+    }
+    
+    .bookInfoBox {
+        width: 40%;
+        margin: 0 40px;
+    }
+    
+    .bookImageBox {
+        width: 30%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .bookBox {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .bookInfoBox {
+        width: 90%;
+        margin: 0 ;
+        text-align: center;
+    }
+    .bookImageBox {
+        width: 60%;
+    }
+    
+    .bookDescription {
+        width: 80%;
+    }
+
+    .descriptionBox {
+        margin-left: 0;
+    }
+
+    .bookImage {
+        width: 10rem;
+    }
+
+    .bookName {
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        font-size: 20px;
+    }
+
+    .bookAuthor {
+        font-size: 15px;
+    }
+    
+    .bookPrice {
+        font-size: 20px;
+    }
+}

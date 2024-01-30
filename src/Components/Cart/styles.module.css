@@ -1,0 +1,29 @@
+.quantityBox {
+    margin: 10px 0;
+}
+
+.quantityNumber {
+    font-weight: 400;
+    font-size: 27px;
+    margin: 0 10px;
+    flex: 1;
+    line-height: 1;
+    vertical-align: center;
+}
+
+.quantityBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    flex: 1;
+    line-height: 1;
+    vertical-align: center;
+}
+
+.symbolQuantityBook {
+    width: 0.8rem;
+}
+
+.quantityNumberBook {
+    font-size: 25px;
+}

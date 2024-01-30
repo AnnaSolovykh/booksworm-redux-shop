@@ -19,6 +19,8 @@ import {
     removeFromFavoritesAsync 
 } from '../Redux/favoritesSlice';
 
+import styles from './styles.module.css';
+
 const Book = ({book}) => {
     const [showText, setShowText] = useState(false);
     const [quantity, setQuantity] = useState(1);
@@ -100,53 +102,51 @@ const Book = ({book}) => {
 
 
     return (
-        <div>
+        <>
+            <div className={styles.bookBox}>
+                <div className={styles.bookImageBox}>
+                    <img className={styles.bookImage} src={`./${book.img}.jpeg`} alt='a book'/>
+                </div>
 
-        <div className='book-box'>
-
-            <div className='book-image-box'>
-                <img className='book-image' src={`./${book.img}.jpeg`} alt='a book'/>
+                <div className={styles.bookInfoBox}>
+                    <h2 className={styles.bookName}>{book.name}</h2>
+                    <h4 className={styles.bookAuthor}>{book.author}</h4>
+                    <h3 className={styles.bookPrice}>$ {book.price}</h3> 
+                    <ChangeQuantity quantity={quantity} setQuantity={setQuantity}/>   
+                    <button className={styles.addToCartBtn} onClick={putToCart}>Add to cart</button>
+                    <button 
+                        className={`${styles.toggleFavoriteBtn} ${isAddingToFavorites ? styles.toggleFavoriteBtnClicked : ''}`}
+                        onClick={toggleFavoriteStatus}
+                    >
+                        <FontAwesomeIcon icon={isFavorite ? fasFaHeart : farFaHeart} />
+                    </button>
+                    {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
+                    <ToastContainer 
+                        position='top-right'
+                        autoClose={1000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme='light'
+                    />
+                </div>
             </div>
 
-            <div className='book-info-box'>
-                <h2 className='book-name'>{book.name}</h2>
-                <h4 className='book-author'>{book.author}</h4>
-                <h3 className='book-price'>$ {book.price}</h3> 
-                <ChangeQuantity quantity={quantity} setQuantity={setQuantity}/>   
-                <button className='add-to-cart-btn' onClick= { putToCart } >Add to cart</button>
-                <button className='toggle-favorite-btn' onClick={toggleFavoriteStatus}>
-                    <FontAwesomeIcon icon={isFavorite ? fasFaHeart : farFaHeart} />
-                </button>
-                {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
-
-                <ToastContainer 
-                    position='top-right'
-                    autoClose={1000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme='light'
-            />
-                
-            </div>
-            </div>
-
-            <div className='description-box'>
-                <h4 className='book-author'>SINOPSIS</h4>
-                <p className='book-description'>{book.showMore ? book.description: book.description.substring(0, 350)+ '...'}
-                <button className='show-more-btn' onClick={ () => showTextClick(book)}>{book.showMore ? 'Show less' : 'Show more'}</button>
+            <div className={styles.descriptionBox}>
+                <h4 className={styles.bookAuthor}>SINOPSIS</h4>
+                <p className={styles.bookDescription}>{book.showMore ? book.description : book.description.substring(0, 350) + '...'}
+                    <button className={styles.showMoreBtn} onClick={() => showTextClick(book)}>{book.showMore ? 'Show less' : 'Show more'}</button>
                 </p>
             </div>
             
-        
-
-        <div className='line'></div>
-        </div>
+            <div className={styles.line}></div>
+        </>
     );
 };
+
 
 export default Book;
