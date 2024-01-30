@@ -1,0 +1,145 @@
+.navLinks {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid var(--background-light);
+    height: 10vh;
+    margin-right: 30px;
+}
+
+.link {
+    margin: 20px;
+    text-decoration: none;
+    color: var(--text-black);
+    font-weight: 500;
+}
+
+.link:hover {
+    color: var(--text-black-hover);
+}
+
+.basketBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkNumber {
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+h1 {
+    font-size: 70px;
+    letter-spacing: 0.2em;
+}
+
+.h1Default {
+    text-decoration: none;
+    color: black;
+}
+
+  /* Mobile */
+.mobileMenuIcon {
+    display: none;
+}
+
+.basketBoxMobile {
+    display: none;
+}
+
+@media all and (max-width: 950px) {
+    .navLinks {
+        display: none;
+    }
+
+    .navLinksMobile {
+        position: absolute;
+        top: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        background-color: rgb(192, 38, 38);
+        right: 0;
+        transition: all 0.5s ease-out;
+        width: 100%;
+    }
+
+    .linkMobile {
+        color: white;
+        text-align: center;
+        padding: 32px;
+        width: 100%;
+        transition: all 0.5s ease-out;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .container {
+        justify-content: space-around;
+        margin: 0 30px;
+    }
+
+    .basketBoxMobile {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-size: 20px;
+    }
+
+    .basketLink {
+        text-decoration: none;
+    }
+
+    .mobileMenuIcon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 30px;
+        color: white;
+        background-color: rgb(192, 38, 38);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .basketBox {
+        display: none;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .navLinksMobile {
+        top: 60px;
+    }
+
+    .link {
+        font-size: 15px;
+        margin: 0;
+    }
+
+    .swalSizeSm {
+        width: 300px !important;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .mobileMenuIcon {
+        top: 15px;
+    }
+}

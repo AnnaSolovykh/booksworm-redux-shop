@@ -3,6 +3,8 @@ import { useRef, useEffect } from 'react';
 import swal from 'sweetalert';
 import { TextPlugin } from 'gsap/TextPlugin';
 
+import styles from './styles.module.css';
+
 gsap.registerPlugin(TextPlugin);
 
 const Promo = () => {
@@ -33,9 +35,9 @@ const Promo = () => {
     };
 
     return (
-        <div className='present-box'>
-            <img ref={presentRef} className='present' onClick={promocode} src={process.env.PUBLIC_URL + 'extra/present.png'} alt='a gift' /> 
-            <h3 ref={textRef} className='present-text'>Tap to get the present!</h3>
+        <div className={styles.presentBox}>
+            <img ref={presentRef} className={styles.present} onClick={promocode} src={process.env.PUBLIC_URL + 'extra/present.png'} alt='a gift' /> 
+            <h3 ref={textRef} className={styles.presentText}>Tap to get the present!</h3>
         </div>
     );
 };
