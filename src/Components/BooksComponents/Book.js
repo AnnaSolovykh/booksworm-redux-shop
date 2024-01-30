@@ -17,6 +17,7 @@ const Book = ({book}) => {
     const [showText, setShowText] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [isAddingToFavorites, setIsAddingToFavorites] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -39,8 +40,13 @@ const Book = ({book}) => {
             dispatch(removeFromFavoritesAsync(book));
             dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: false }));
         } else {
-            dispatch(addToFavoritesAsync(book)); 
-            dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: true }));
+            if (!isAddingToFavorites) {
+                setIsAddingToFavorites(true);
+                dispatch(addToFavoritesAsync(book)).then(() => {
+                    setIsAddingToFavorites(false);
+                });
+                dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: true }));
+            }
         }
     };
 
