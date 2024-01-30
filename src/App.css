@@ -1,20 +1,37 @@
+:root {
+  --primary-red: rgb(192, 38, 38);
+  --primary-green: rgb(21, 103, 76);
+  --background-light: #eee;
+  --text-white: white;
+  --text-black: black;
+  --text-gray: #eee;
+  --text-green: rgba(21, 103, 76, 0.771);
+  --text-black-hover: rgb(21, 103, 76);
+  --text-black-hover-alpha: rgba(21, 103, 76, 0.771);
+  --text-light: rgba(20, 85, 63, 0.993);
+  --text-light-alpha: rgba(20, 85, 63, 0.823);
+  --text-gray-soft: rgba(20, 85, 63, 0.677);
+  --text-red: rgba(194, 55, 55, 0.392);
+  --text-red-hover: rgba(194, 55, 55, 0.583);
+  --text-gray-dotted: #eee;
+}
+
 /* header */
 
 .present-box {
   display: flex;
-  background-color: rgb(192, 38, 38);
+  background-color: var(--primary-red);
   justify-content: center;
   align-items: center;
-  width: 100%; 
-  height: 80px; 
+  width: 100%;
+  height: 80px;
   position: relative;
 }
 
 .present-text {
-  color: white;
+  color: var(--text-white);
   position: absolute;
 }
-
 
 .present {
   width: 6rem;
@@ -25,7 +42,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--background-light);
   height: 10vh;
   margin-right: 30px;
 }
@@ -33,13 +50,12 @@
 .link {
   margin: 20px;
   text-decoration: none;
-  color: black;
+  color: var(--text-black);
   font-weight: 500;
 }
 
-
 .link:hover {
-  color: rgb(21, 103, 76);
+  color: var(--text-black-hover);
 }
 
 .basket-box {
