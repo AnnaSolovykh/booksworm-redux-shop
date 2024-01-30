@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../utils/fetchData'; 
 import { removeUser } from '../Redux/authenticationSlice';
 
+import styles from './styles.module.css';
+
 const Logout = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ const Logout = () => {
 
     return (
         <div>
-            <button onClick={handleLogout}>LOGOUT</button>
+            <p className={styles.logoutBtn} onClick={handleLogout}>LOGOUT</p>
         </div>
     );
 };

@@ -2,6 +2,8 @@
   --primary-red: rgb(192, 38, 38);
   --primary-green: rgb(21, 103, 76);
   --background-light: #eee;
+  --red-btn: #ff6b6b;
+  --red-btn-hover: #ff4141;
   --text-white: white;
   --text-black: black;
   --text-gray: #eee;
@@ -738,14 +740,4 @@ h1 {
   }
 
 
-}
-
-.login-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(124, 24, 24);
-  padding: 20px;
-  z-index: 1000;
 }

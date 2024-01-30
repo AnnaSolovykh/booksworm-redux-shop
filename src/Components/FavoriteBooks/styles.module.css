@@ -64,7 +64,7 @@ h2 {
 }
 
 .bookTableColumn:nth-child(4) button {
-    background-color: #ff6b6b;
+    background-color: var(--red-btn);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -73,7 +73,7 @@ h2 {
 }
 
 .bookTableColumn:nth-child(4) button:hover {
-    background-color: #ff4141;
+    background-color: var(--red-btn-hover);
 }
 
 @media screen and (max-width: 768px) {

@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../Redux/authenticationSlice';
 import { register } from '../../utils/fetchData';
 
+import styles from './styles.module.css';
+
 const Register = () => {
     const [name, setName] = useState(''); 
     const [email, setEmail] = useState('');
@@ -45,10 +47,10 @@ const Register = () => {
     };
 
     return (
-        <div className="login-container">
+        <div className={styles.container}>
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className={styles.formGroup}>
                 <label htmlFor="name">Name:</label>
                 <input
                     type="text"
@@ -59,7 +61,7 @@ const Register = () => {
                     required
                 />
                 </div>
-                <div className="form-group">
+                <div className={styles.formGroup}>
                 <label htmlFor="username">Email:</label>
                 <input
                     type="text"
@@ -70,7 +72,7 @@ const Register = () => {
                     required
                 />
                 </div>
-                <div className="form-group">
+                <div className={styles.formGroup}>
                 <label htmlFor="password">Password:</label>
                 <input
                     type="password"

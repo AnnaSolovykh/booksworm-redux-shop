@@ -7,7 +7,7 @@ import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
 
 import ChangeQuantity from '../Cart/ChangeQuantity';
-import LoginModal from '../Others/LoginModal';
+import LoginModal from '../Auth/LoginModal';
 
 import { addItemToCart, getCartItems, updateQuantity } from '../Redux/cartSlice';
 import { selectIsLoggedIn } from '../Redux/authenticationSlice';

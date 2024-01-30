@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import LoginModal from '../Others/LoginModal';
+import LoginModal from '../Auth/LoginModal';
 import Logout from '../Auth/Logout';
 
 const Navbar = ({ isMobile, setIsMobile, handleFavoriteClick, totalQuantity, isLoggedIn, showLoginModal, setShowLoginModal }) => {

@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../Redux/authenticationSlice';
 import { login } from '../../utils/fetchData';
 
+import styles from './styles.module.css';
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -38,30 +40,30 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
+        <div className={styles.container}> {/* Apply the CSS class */}
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                <label htmlFor="username">Email:</label>
-                <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={handleEmailChange}
-                    required
-                />
+                <div className={styles.formGroup}> {/* Apply the CSS class */}
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={handleEmailChange}
+                        required
+                    />
                 </div>
-                <div className="form-group">
-                <label htmlFor="password">Password:</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                    required
-                />
+                <div className={styles.formGroup}> {/* Apply the CSS class */}
+                    <label htmlFor="password">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        required
+                    />
                 </div>
                 <button type="submit">Log In</button>
                 <p>

@@ -1,0 +1,121 @@
+.logoutBtn {
+    color: var(--text-black);
+    cursor: pointer;
+}
+
+.loginModal {
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 40px;
+    color: var(--red-btn);
+}
+
+.loginModal p {
+    text-align: center;
+    color: var(--text-green);
+    font-size: large;
+    margin: 5px 0 0 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+}
+
+.container h2 {
+    text-align: center;
+    color: var(--text-green);
+    margin: 10px 0 20px 0;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.formGroup input {
+    width: 95%;
+    align-self: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.container button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--red-btn);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: var(--red-btn-hover);
+}
+
+.container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.container p a {
+    color: var(--text-black-hover);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.container p a:hover {
+    color: var(--text-black-hover-alpha);
+}
+
+@media screen and (max-width: 768px) {
+    .loginModal {
+        width: 80%;
+    }
+    .loginModal p {
+        font-size: medium;
+    }
+    .container {
+        width: 80%;
+    }
+    .container p {
+        font-size: small;
+    }
+    
+    .container p a {
+        font-size: small;
+    }
+}
