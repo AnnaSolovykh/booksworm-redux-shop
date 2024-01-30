@@ -1,5 +1,4 @@
 const dataBooks = [
-
     {
         id: 1,
         price: 9.99,

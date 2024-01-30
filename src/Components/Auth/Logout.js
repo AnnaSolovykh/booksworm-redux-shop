@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../utils/fetchData'; 
-import {removeUser} from '../Redux/authenticationSlice';
+import { removeUser } from '../Redux/authenticationSlice';
 
 const Logout = () => {
     const dispatch = useDispatch();

@@ -10,7 +10,7 @@ export const login = (email, password) => {
         },
         {
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json'
             }
         }
     );
@@ -25,22 +25,22 @@ export const register = (name, email, password) => {
         },
         {
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json'
             }
         }
     );
 };
 
 export const logout = () => {
-    return axios.post("http://localhost:4000/api/v1/auth/logout");
+    return axios.post('http://localhost:4000/api/v1/auth/logout');
 };  
 
 export const getFavorites = () => {
     return axios.get(`http://localhost:4000/api/v1/books`, 
     {
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${jwtToken}`
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwtToken}`
         }
     });
 };
@@ -52,8 +52,8 @@ export const addBookToFavorites = (book) => {
     },
     {
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${jwtToken}`
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwtToken}`
         }
     });
 };
@@ -62,8 +62,8 @@ export const removeBookFromFavorites = (bookId) => {
     return axios.delete(`http://localhost:4000/api/v1/books/${bookId}`, 
     {
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${jwtToken}`
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwtToken}`
         }
     });
 };

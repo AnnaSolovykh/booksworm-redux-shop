@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchFavoriteBooksAsync,removeFromFavoritesAsync, setFavoriteStatus } from '../Redux/favoritesSlice';
+import { fetchFavoriteBooksAsync, removeFromFavoritesAsync, setFavoriteStatus } from '../Redux/favoritesSlice';
 import FavoriteBook from './FavoriteBook';
 
 const FavoriteBooks = () => {

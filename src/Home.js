@@ -7,7 +7,6 @@ const Home = () => {
         <div className='block'>
             <AllCategories />
         </div>
-
         <div className='block'>
             <Books />
         </div>

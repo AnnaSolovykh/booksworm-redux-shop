@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getFavorites, addBookToFavorites, removeBookFromFavorites } from '../../utils/fetchData';
 
 export const fetchIsFavorite = createAsyncThunk(
-    "favorites/fetchIsFavorite",
+    'favorites/fetchIsFavorite',
     async (bookId) => {
         return getFavorites()
             .then((response) => {
@@ -51,7 +51,7 @@ export const removeFromFavoritesAsync = createAsyncThunk(
 );
 
 export const favoritesSlice = createSlice({
-    name: "favorites",
+    name: 'favorites',
     initialState: {
         favoriteItems: [],
         isFavorite: {},

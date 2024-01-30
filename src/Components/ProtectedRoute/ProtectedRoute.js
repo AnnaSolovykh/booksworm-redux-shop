@@ -10,7 +10,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     return isLoggedIn ? (
         <Component {...rest} />
     ) : (
-        <Navigate to="/login" state={{ from: location, message: "Please log in to access this page." }} />
+        <Navigate to='/login' state={{ from: location, message: 'Please log in to access this page.' }} />
     );
 };
 

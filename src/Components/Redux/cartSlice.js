@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const cartSlice = createSlice ({
     name: 'cart',
@@ -62,12 +62,7 @@ export const cartSlice = createSlice ({
 
     }
 });
-/*
-export const getTotalPrice = state => {
-    return state.cart.cartItems.reduce( (total, cartItems) => {
-        return cartItems.totalPrice + total 
-    },0 )
-}*/
+
 export const getTotalPrice = state =>  {
     let totalPrice = 0;
     state.cart.cartItems.forEach( item => {

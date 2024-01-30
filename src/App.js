@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import Promo from './Components/Others/Promo';
@@ -46,12 +46,12 @@ const App = () => {
         />
 
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/logout" element={<ProtectedRoute component={Logout} />} />
-          <Route path="/favorite-books" element={<ProtectedRoute component={FavoriteBooks} />} />
+          <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/logout' element={<ProtectedRoute component={Logout} />} />
+          <Route path='/favorite-books' element={<ProtectedRoute component={FavoriteBooks} />} />
         </Routes>
       </Router>
     </div>
