@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCategory, getSelectedCategory } from '../Redux/booksSlice';
 
+import styles from './styles.module.css';
+
 const Filter = ({category}) => {
     const dispatch = useDispatch(); 
     const selectedCategory = useSelector(getSelectedCategory);
@@ -13,7 +15,7 @@ const Filter = ({category}) => {
         <div>
             <p 
                 onClick={handleCategoryClick} 
-                className={selectedCategory === category ? 'categoryButtonSelected categoryButton' : 'categoryButton'}
+                className={selectedCategory === category ? `${styles.categoryButtonSelected} ${styles.categoryButton}` : styles.categoryButton}
             >
                 {category}
             </p>

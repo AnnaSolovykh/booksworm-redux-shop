@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import Filter from './Filter';
 
+import styles from './styles.module.css';
+
 const AllCategories = () => {
     const [showCategories, setShowCategories] = useState(false);
 
     return (
         <div>
             <button 
-                className='filter-btn-mobile' 
+                className={styles.filterBtnMobile} 
                 onClick={ () => setShowCategories(!showCategories)
             }>
                 FILTER
             </button>
             <div 
-                className={showCategories ? 'categories-box-mobile' : 'categories-box'}
+                className={showCategories ? styles.categoriesBoxMobile : styles.categoriesBox}
                 onClick={ () => setShowCategories(false)}
             >
                 { ['ALL','NOVELS', 'HISTORY', 'PSYCHOLOGY', 'ADVENTURE', 'DETECTIVES'].map (
