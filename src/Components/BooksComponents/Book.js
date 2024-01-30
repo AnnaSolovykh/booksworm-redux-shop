@@ -21,8 +21,8 @@ const Book = ({book}) => {
     const dispatch = useDispatch();
 
     const showTextClick = (book) => {
-        book.showMore = !book.showMore
-        setShowText(!showText)
+        book.showMore = !book.showMore;
+        setShowText(!showText);
     };
 
     const isFavorite = useSelector((state) =>
@@ -33,7 +33,7 @@ const Book = ({book}) => {
     const toggleFavoriteStatus = () => {
         if (!isLoggedIn) {
             setShowLoginModal(true); 
-            return
+            return;
         }
         if (isFavorite) {
             dispatch(removeFromFavoritesAsync(book));
@@ -51,14 +51,14 @@ const Book = ({book}) => {
             dispatch(fetchIsFavorite(book.id));
         }
     }, [dispatch, book.id, isLoggedIn, isFavorite]);
-    const cartItems = useSelector( getCartItems  )
+    const cartItems = useSelector( getCartItems  );
 
-    const booksInCart = cartItems.some ( item => item.id === book.id)
+    const booksInCart = cartItems.some ( item => item.id === book.id);
 
 
     const putToCart = () => {
         if (!booksInCart) {
-            dispatch (addItemToCart ({ book, quantity })) 
+            dispatch (addItemToCart ({ book, quantity })); 
             const notify = () => toast.success('Added to your basket!', {
                 position: 'top-right',
                 autoClose: 1000,
@@ -69,9 +69,9 @@ const Book = ({book}) => {
                 progress: undefined,
                 theme: 'light',
             });
-            notify()
+            notify();
         } else {
-            dispatch (updateQuantity ( {book, quantity} ) )
+            dispatch (updateQuantity ( {book, quantity} ) );
             const notify = () => toast.success('Added to your basket!', {
                 position: 'top-right',
                 autoClose: 1000,
@@ -81,10 +81,10 @@ const Book = ({book}) => {
                 draggable: true,
                 progress: undefined,
                 theme: 'light',
-            })
-            notify()
+            });
+            notify();
         }
-    }
+    };
 
 
     return (
@@ -134,7 +134,7 @@ const Book = ({book}) => {
 
         <div className='line'></div>
         </div>
-    )
-}
+    );
+};
 
 export default Book;

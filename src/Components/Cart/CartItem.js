@@ -8,7 +8,7 @@ import { decrementQuantityInCart } from "../Redux/cartSlice";
 const CartItem = ( {cartItem} ) => {
 
     const dispatch = useDispatch();
-    const cartItemPrice = (cartItem.price * cartItem.quantity).toFixed(2)
+    const cartItemPrice = (cartItem.price * cartItem.quantity).toFixed(2);
 
     
     return (
@@ -45,7 +45,7 @@ const CartItem = ( {cartItem} ) => {
         </div>
     </div>
 
-    )
-}
+    );
+};
 
 export default CartItem;

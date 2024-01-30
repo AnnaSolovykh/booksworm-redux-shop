@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import LoginModal from '../Others/LoginModal';
+import Logout from '../Auth/Logout';
 
 const Navbar = ({ isMobile, setIsMobile, handleFavoriteClick, totalQuantity, isLoggedIn, showLoginModal, setShowLoginModal }) => {
     return (
@@ -15,7 +16,7 @@ const Navbar = ({ isMobile, setIsMobile, handleFavoriteClick, totalQuantity, isL
             <Link to='/' className='link link-mobile'>HOME</Link>
             <Link to='/favorite-books' className='link link-mobile' onClick={handleFavoriteClick}>FAVORITES</Link>
             {isLoggedIn ? (
-                <Link to='/logout' className='link link-mobile'>LOG OUT</Link>
+                <Logout/>
             ) : (
                 <Link to='/login' className='link link-mobile'>LOG IN</Link>
             )}
@@ -41,6 +42,6 @@ const Navbar = ({ isMobile, setIsMobile, handleFavoriteClick, totalQuantity, isL
         </div>
         </>
     );
-}
+};
 
 export default Navbar;

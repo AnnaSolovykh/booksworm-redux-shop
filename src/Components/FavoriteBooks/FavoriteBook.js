@@ -5,7 +5,7 @@ const FavoriteBook = ({ favoriteBook }) => {
             <p>{favoriteBook.author}</p>
             <p>{favoriteBook.price}</p>
         </div>
-    )
-}
+    );
+};
 
 export default FavoriteBook;

@@ -178,6 +178,6 @@ const dataBooks = [
         category: 'ADVENTURE',
         showMore: false,
     }
-]
+];
 
 export default dataBooks;

@@ -11,7 +11,7 @@ const Books = () => {
         <div>
             {dataBooks.filter(book=> {
                 if (selectedCategory === "ALL") return true;
-                return selectedCategory === book.category
+                return selectedCategory === book.category;
                 }
             )
             .map (
@@ -19,7 +19,7 @@ const Books = () => {
             <Book key={index} book={book}/>
         ) }
         </div>
-    )
-}
+    );
+};
 
 export default Books;

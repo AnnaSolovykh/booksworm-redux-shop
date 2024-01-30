@@ -12,7 +12,7 @@ export const booksSlice = createSlice( {
         }
 
     }
-})
+});
 
 export const getSelectedCategory = state => state.books.selectedCategory;
 export const { filterCategory } = booksSlice.actions;

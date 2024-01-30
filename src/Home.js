@@ -12,7 +12,7 @@ const Home = () => {
             <Books />
         </div>
     </div>
-    )
-}
+    );
+};
 
 export default Home;

@@ -21,6 +21,6 @@ const FavoriteBooks = () => {
             ))}
         </div>
     );
-}
+};
 
 export default FavoriteBooks;

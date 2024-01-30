@@ -11,8 +11,8 @@ const Cart = () => {
 
     const cartItems = useSelector( getCartItems );
     const totalPrice = useSelector ( getTotalPrice );
-    const fixedTotalPrice = totalPrice.toFixed(2)
-    const totalQuantity = useSelector ( getTotalQuantity )
+    const fixedTotalPrice = totalPrice.toFixed(2);
+    const totalQuantity = useSelector ( getTotalQuantity );
 
 
     const [value, setValue] = useState("");
@@ -24,19 +24,19 @@ const Cart = () => {
     }
 
     function submitValue(e) {
-        addPromo()
+        addPromo();
         e.preventDefault();
     }
 
     const addPromo = () => {
         if (value === "LUCK") {
-            setDiscount(20)
+            setDiscount(20);
         }
         else {swal("Oh no!", "This promocode does not exist!", "error");
             }
-    }
+    };
 
-    const totalWithDiscount = (totalPrice - totalPrice * (discount/100)).toFixed(2)
+    const totalWithDiscount = (totalPrice - totalPrice * (discount/100)).toFixed(2);
    
 
     return (
@@ -72,8 +72,8 @@ const Cart = () => {
             
             
         </div>
-    )
-}
+    );
+};
 
 
 

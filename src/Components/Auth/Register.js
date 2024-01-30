@@ -41,8 +41,8 @@ const Register = () => {
                 }
             })
             .catch(error => {
-                console.log(error)
-            })
+                console.log(error);
+            });
     };
 
     return (
@@ -90,7 +90,7 @@ const Register = () => {
             </form>
         </div>
     );
-}
+};
 
 export default Register;
 

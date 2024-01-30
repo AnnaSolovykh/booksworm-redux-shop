@@ -13,7 +13,7 @@ export const login = (email, password) => {
                 "Content-Type": "application/json"
             }
         }
-    )
+    );
 };
 
 export const register = (name, email, password) => {
@@ -28,7 +28,7 @@ export const register = (name, email, password) => {
                 "Content-Type": "application/json"
             }
         }
-    )
+    );
 };
 
 export const logout = () => {

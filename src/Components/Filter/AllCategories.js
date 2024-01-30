@@ -3,7 +3,7 @@ import Filter from "./Filter";
 
 const AllCategories = () => {
 
-    const [showCategories, setShowCategories] = useState(false)
+    const [showCategories, setShowCategories] = useState(false);
 
     return (
 
@@ -21,7 +21,7 @@ const AllCategories = () => {
 
         </div>
         
-    )
-}
+    );
+};
 
 export default AllCategories;
