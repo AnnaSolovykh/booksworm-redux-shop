@@ -19,7 +19,7 @@
     opacity: 0;
 }
 
-@media all and (max-width: 950px) {
+@media screen and (max-width: 1024px) {
     .presentBox {
         display: none;
     }

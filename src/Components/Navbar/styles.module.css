@@ -60,7 +60,7 @@ h1 {
     display: none;
 }
 
-@media all and (max-width: 950px) {
+@media screen and (max-width: 1024px) {
     .navLinks {
         display: none;
     }
@@ -87,7 +87,7 @@ h1 {
     }
 
     .container {
-        height: 20vh;
+        height: 13vh;
         justify-content: space-around;
         padding: 0 10px;
         align-items: last baseline;

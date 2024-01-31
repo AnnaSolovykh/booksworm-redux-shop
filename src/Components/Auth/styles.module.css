@@ -102,16 +102,17 @@
     color: var(--text-black-hover-alpha);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .logoutBtnWrapper {
         display: flex;
         justify-content: center;
-        margin-left: 40px;
+        margin-left: 100px;
+        margin-top: 5px;
     }
     .logoutBtn {
         color: var(--text-black-hover);
         cursor: pointer;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 600;
     }
     .loginModal {
@@ -126,8 +127,16 @@
     .container p {
         font-size: small;
     }
-    
     .container p a {
         font-size: small;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .logoutBtnWrapper {
+        margin-left: 60px;
+    }
+    .logoutBtn {
+        font-size: 15px;
     }
 }
