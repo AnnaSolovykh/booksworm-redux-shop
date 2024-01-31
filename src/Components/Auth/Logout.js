@@ -15,7 +15,6 @@ const Logout = () => {
             .then(response => {
                 dispatch(removeUser());
                 navigate('/');
-                console.log(response);
             })
             .catch(error => {
                 console.log(error);

@@ -32,8 +32,8 @@ const Register = () => {
         register(name, email, password)
             .then(response => {
                 if(response.status === 201) {
-                    sessionStorage.setItem("jwtToken", response.data.token);
-                    sessionStorage.setItem("username", response.data.user.name);
+                    sessionStorage.setItem('jwtToken', response.data.token);
+                    sessionStorage.setItem('username', response.data.user.name);
                     dispatch(setUser(response.data.user.name));
                     navigate('/favorite-books');
                     setName('');
@@ -51,42 +51,45 @@ const Register = () => {
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
-                <label htmlFor="name">Name:</label>
+                <label htmlFor='name'>Name:</label>
                 <input
-                    type="text"
-                    id="name"
-                    name="name"
+                    type='text'
+                    id='name'
+                    name='name'
+                    autoComplete='name'
                     value={name}
                     onChange={handleNameChange}
                     required
                 />
                 </div>
                 <div className={styles.formGroup}>
-                <label htmlFor="username">Email:</label>
+                <label htmlFor='username'>Email:</label>
                 <input
-                    type="text"
-                    id="email"
-                    name="email"
+                    type='text'
+                    id='email'
+                    name='email'
+                    autoComplete='email'
                     value={email}
                     onChange={handleEmailChange}
                     required
                 />
                 </div>
                 <div className={styles.formGroup}>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor='password'>Password:</label>
                 <input
-                    type="password"
-                    id="password"
-                    name="password"
+                    type='password'
+                    id='password'
+                    name='password'
+                    autoComplete='new-password'
                     value={password}
                     onChange={handlePasswordChange}
                     required
                 />
                 </div>
-                <button type="submit">Sign Up</button>
+                <button type='submit'>Sign Up</button>
                 <p>
                     Already have an account?{' '}
-                    <Link to="/login">Sign in here</Link>
+                    <Link to='/login'>Sign in here</Link>
                 </p>
             </form>
         </div>
