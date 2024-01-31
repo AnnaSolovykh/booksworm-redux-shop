@@ -47,7 +47,7 @@ const Cart = () => {
                 </div>
             ) : (
             <div className={styles.cart}>
-                {cartItems.map((cartItem, index) => <CartItem key={index} cartItem={cartItem}/>)}
+                {cartItems.map((cartItem, id) => <CartItem key={id} cartItem={cartItem}/>)}
                 
                 <h3 className={styles.total}>Subtotal: $ {fixedTotalPrice}</h3>
                 <h3 className={styles.total}>Total number of items: {totalQuantity}</h3> 
