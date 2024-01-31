@@ -1,19 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFavoriteBooksAsync, removeFromFavoritesAsync, setFavoriteStatus } from '../Redux/favoritesSlice';
 import FavoriteBook from './FavoriteBook';
 
 import styles from './styles.module.css';
+import Loader from '../Others/Loader';
 
 const FavoriteBooks = () => {
     const dispatch = useDispatch();
     const favoriteBooks = useSelector((state) => state.favorites.favoriteItems);
     const user = useSelector((state) => state.authentication.user);
     
+    const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
-        dispatch(fetchFavoriteBooksAsync());
+        dispatch(fetchFavoriteBooksAsync())
+            .then(() => {
+                setIsLoading(false); 
+            });
     }, [dispatch]);
 
     const handleRemoveFavorite = (book) => {
@@ -27,7 +32,10 @@ const FavoriteBooks = () => {
     return (
         <div className={styles.favoriteBooksWrapper}>
             <h2>Hi {user}, hope you are having a nice day!</h2>
-            {favoriteBooks.length === 0 ? 
+            {isLoading ? ( 
+                <Loader/>
+            ) : (
+                favoriteBooks.length === 0 ? 
                 (
                     <div className={styles.emptyFavoritesWrapper}>
                         <h3>You dont't have any favorite books yet</h3>
@@ -47,7 +55,7 @@ const FavoriteBooks = () => {
                         </div>
                     </div>
                 )
-            }
+            )}
         </div>
     );
 };
