@@ -58,7 +58,6 @@ const Login = () => {
                         <label htmlFor='email'>Email:</label>
                         <input
                             type='text'
-                            id='email'
                             name='email'
                             autoComplete='email'
                             value={email}
@@ -70,7 +69,6 @@ const Login = () => {
                         <label htmlFor='password'>Password:</label>
                         <input
                             type='password'
-                            id='password'
                             name='password'
                             autoComplete='current-password'
                             value={password}

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import LoginModal from '../Auth/LoginModal';
@@ -6,11 +7,25 @@ import Logout from '../Auth/Logout';
 
 import styles from './styles.module.css';
 
-const Navbar = ({ isMobile, setIsMobile, handleFavoriteClick, totalQuantity, isLoggedIn, showLoginModal, setShowLoginModal }) => {
+const Navbar = ({ isMobile, setIsMobile, totalQuantity, isLoggedIn }) => {
+    const [showLoginModal, setShowLoginModal] = useState(false);
+
+    useEffect(() => {
+            if (isLoggedIn) {
+                setShowLoginModal(false); 
+            }
+    }, [isLoggedIn]); 
+
+    const handleFavoriteClick = () => {
+        if (!isLoggedIn) {
+            setShowLoginModal(true); 
+            return
+        } 
+    };
+
     return (
         <>
             {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
-
             <nav 
                 className={isMobile ? styles.navLinksMobile : styles.navLinks} 
                 onClick={() => setIsMobile(false)}

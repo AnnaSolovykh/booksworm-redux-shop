@@ -22,14 +22,6 @@ const App = () => {
   const totalQuantity = useSelector ( getTotalQuantity );
   const isLoggedIn = useSelector(selectIsLoggedIn); 
   const [isMobile, setIsMobile] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-
-  const handleFavoriteClick = (e) => {
-    if (!isLoggedIn) {
-      e.preventDefault();
-      setShowLoginModal(true); 
-    }
-  };
 
   return (
     <div>
@@ -38,11 +30,8 @@ const App = () => {
         <Navbar
           isMobile={isMobile}
           setIsMobile={setIsMobile}
-          handleFavoriteClick={handleFavoriteClick}
           totalQuantity={totalQuantity}
           isLoggedIn={isLoggedIn}
-          showLoginModal={showLoginModal}
-          setShowLoginModal={setShowLoginModal}
         />
 
         <Routes>
