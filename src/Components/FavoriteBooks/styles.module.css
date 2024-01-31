@@ -1,3 +1,28 @@
+.emptyFavoritesWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyFavoritesWrapper button{
+    background-color: var(--red-btn);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.emptyFavoritesWrapper button:hover{
+    background-color: var(--red-btn-hover);
+}
+
+.linkHome {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+}
+
 .favoriteBooksWrapper h2 {
     text-align: center;
     color: var(--text-green);
