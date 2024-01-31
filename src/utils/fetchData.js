@@ -3,7 +3,7 @@ import axios from 'axios';
 const jwtToken = sessionStorage.getItem('jwtToken');
 
 export const login = (email, password) => {
-    return axios.post(`http://localhost:4000/api/v1/auth/login`, 
+    return axios.post(`https://anna-solovykh-bookworm.onrender.com/api/v1/auth/login`, 
         {
             email: email,
             password: password
@@ -17,7 +17,7 @@ export const login = (email, password) => {
 };
 
 export const register = (name, email, password) => {
-    return axios.post(`http://localhost:4000/api/v1/auth/register`, 
+    return axios.post(`https://anna-solovykh-bookworm.onrender.com/api/v1/auth/register`, 
         {
             name: name,
             email: email,
@@ -32,11 +32,11 @@ export const register = (name, email, password) => {
 };
 
 export const logout = () => {
-    return axios.post('http://localhost:4000/api/v1/auth/logout');
+    return axios.post('https://anna-solovykh-bookworm.onrender.com/api/v1/auth/logout');
 };  
 
 export const getFavorites = () => {
-    return axios.get(`http://localhost:4000/api/v1/books`, 
+    return axios.get(`https://anna-solovykh-bookworm.onrender.com/api/v1/books`, 
     {
         headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export const getFavorites = () => {
 };
 
 export const addBookToFavorites = (book) => {
-    return axios.post(`http://localhost:4000/api/v1/books`, 
+    return axios.post(`https://anna-solovykh-bookworm.onrender.com/api/v1/books`, 
     {
         ...book
     },
@@ -59,7 +59,7 @@ export const addBookToFavorites = (book) => {
 };
 
 export const removeBookFromFavorites = (bookId) => {
-    return axios.delete(`http://localhost:4000/api/v1/books/${bookId}`, 
+    return axios.delete(`https://anna-solovykh-bookworm.onrender.com/api/v1/books/${bookId}`, 
     {
         headers: {
             'Content-Type': 'application/json',
