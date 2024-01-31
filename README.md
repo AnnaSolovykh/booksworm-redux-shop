@@ -7,7 +7,7 @@ Demo: [Bookworm Redux Shop](https://booksworm-redux-shop-git-main-annasolovykh.v
 ### Description:
 Bookworm is designed to showcase the integration of Redux with Node.js in creating a full-stack e-commerce solution. 
 <br/>
-For more details about the backend features, [visit backend repository](https://github.com/AnnaSolovykh/bookworm-backend).
+For more details about the backend features, [visit the backend repository](https://github.com/AnnaSolovykh/bookworm-backend).
 
 ### Key Features:
 
