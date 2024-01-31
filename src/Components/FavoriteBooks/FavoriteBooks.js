@@ -20,7 +20,7 @@ const FavoriteBooks = () => {
     };
 
     return (
-        <>
+        <div className={styles.favoriteBooksWrapper}>
             <h2>Hi {user}, hope you are having a nice day!</h2>
             <div className={styles.containerWrapper}>
                 <div className={styles.container}>
@@ -33,7 +33,7 @@ const FavoriteBooks = () => {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

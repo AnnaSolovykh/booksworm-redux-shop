@@ -1,4 +1,4 @@
-h2 {
+.favoriteBooksWrapper h2 {
     text-align: center;
     color: var(--text-green);
     padding: 20px;
@@ -26,7 +26,7 @@ h2 {
     align-items: center;
     border-bottom: 1px solid #ddd;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: var(--background-light-gray); 
 }
 
 .bookTableColumn {

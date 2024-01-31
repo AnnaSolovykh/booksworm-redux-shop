@@ -67,14 +67,14 @@ h1 {
         flex-direction: column;
         justify-content: center;
         height: 100%;
-        background-color: rgb(192, 38, 38);
+        background-color: var(--primary-red); 
         right: 0;
         transition: all 0.5s ease-out;
         width: 100%;
     }
 
     .linkMobile {
-        color: white;
+        color: var(--text-white);
         text-align: center;
         padding: 32px;
         width: 100%;
@@ -94,7 +94,7 @@ h1 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: black;
+        color: var(--text-black);
         font-size: 20px;
     }
 
@@ -108,8 +108,8 @@ h1 {
         top: 20px;
         right: 25px;
         font-size: 30px;
-        color: white;
-        background-color: rgb(192, 38, 38);
+        color: var(--text-white);
+        background-color: var(--primary-red); 
         border: none;
         outline: none;
         cursor: pointer;

@@ -1,6 +1,7 @@
 :root {
   --primary-red: rgb(192, 38, 38);
   --primary-green: rgb(21, 103, 76);
+  --background-light-gray: #f9f9f9;
   --background-light: #eee;
   --red-btn: #ff6b6b;
   --red-btn-hover: #ff4141;
@@ -15,5 +16,4 @@
   --text-gray-soft: rgba(20, 85, 63, 0.677);
   --text-red: rgba(194, 55, 55, 0.392);
   --text-red-hover: rgba(194, 55, 55, 0.583);
-  --text-gray-dotted: #eee;
 }

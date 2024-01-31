@@ -3,7 +3,7 @@ const dataBooks = [
         id: 1,
         price: 9.99,
         img: 'WhyNationsFail',
-        name: 'WHY NATIONS FAIL: THE ORIGINS OF POWER, PROSPERITY AND POVERTY',
+        name: 'Why Nations Fail: The Origins of Power, Prosperity, and Poverty',
         author: 'by Daron Acemoglu, James A. Robinson',
         description: 'Shortlisted for the Financial Times and Goldman Sachs Business Book of the Year Award 2012. Why are some nations more prosperous than others? Why Nations Fail sets out to answer this question, with a compelling and elegantly argued new theory: that it is not down to climate, geography or culture, but because of institutions. Drawing on an extraordinary range of contemporary and historical examples, from ancient Rome through the Tudors to modern-day China, leading academics Daron Acemoglu and James A. Robinson show that to invest and prosper, people need to know that if they work hard, they can make money and actually keep it - and this means sound institutions that allow virtuous circles of innovation, expansion and peace. Based on fifteen years of research, and answering the competing arguments of authors ranging from Max Weber to Jeffrey Sachs and Jared Diamond, Acemoglu and Robinson step boldly into the territory of Francis Fukuyama and Ian Morris. They blend economics, politics, history and current affairs to provide a new, powerful and persuasive way of understanding wealth and poverty.',
         category: 'HISTORY',

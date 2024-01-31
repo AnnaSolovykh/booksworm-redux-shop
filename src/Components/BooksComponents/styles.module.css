@@ -1,5 +1,5 @@
 .line {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--text-gray);
     height: 10px;
 }
 
@@ -21,7 +21,7 @@
 
 .bookName {
     font-weight: 200;
-    letter-spacing: 0.3em;
+    letter-spacing: 2px;
     font-size: 30px;
 }
 
@@ -56,16 +56,16 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: rgba(20, 85, 63, 0.993);
+    color: var(--text-light);
     text-decoration: underline;
     font-size: 12px;
 }
 
 .addToCartBtn {
     font-size: 17px;
-    background-color:rgba(20, 85, 63, 0.993);
+    background-color:var(--text-light);
     border: none;
-    color: whitesmoke;
+    color: var(--text-white);
     padding: 10px 20px;
     border-radius: 5px;
     font-family: 'Playfair Display', serif;
@@ -78,7 +78,7 @@
 }
 
 .addToCartBtn:hover {
-    background-color:rgba(20, 85, 63, 0.823);
+    background-color:var(--text-light-alpha);
 }
 
 .toggleFavoriteBtn {

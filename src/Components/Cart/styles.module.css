@@ -50,6 +50,7 @@
     letter-spacing: 0.1em;
     font-size: 40px;
     color:rgb(20, 85, 63);
+    color: var(--text-light);
 }
 
 .emptyCartBox {
@@ -66,29 +67,29 @@
     font-size: 20px;
     font-weight: 800;
     letter-spacing: 0.3em;
-    background-color: rgba(194, 55, 55, 0.392);
+    background-color: var(--text-red); 
     cursor: pointer;
 }
 
 .cartLink {
-    color:rgb(24, 89, 67);
+    color: var(--text-light);
     margin: 10px;
     text-decoration: none;
     font-weight: 500;
 }
 
 .cartBtn:hover {
-    background-color: rgba(194, 55, 55, 0.583);
+    background-color: var(--text-red-hover);
 }
 
 .cart {
-    border: 3px solid #eee;
+    border: 3px solid var(--text-gray);
     width: 70%;
     margin-bottom: 20px;
 }
 
 .cartBox {
-    border-bottom: 2px dotted #eee;
+    border-bottom: 2px dotted var(--text-gray);
     padding: 30px;
     display: flex;
     justify-content: space-around;
