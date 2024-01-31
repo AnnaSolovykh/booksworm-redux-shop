@@ -19,8 +19,8 @@ const AllCategories = () => {
                 onClick={ () => setShowCategories(false)}
             >
                 { ['ALL','NOVELS', 'HISTORY', 'PSYCHOLOGY', 'ADVENTURE', 'DETECTIVES'].map (
-                    (category, index) =>
-                    <Filter key={index} category={category}/>
+                    (category, id) =>
+                    <Filter key={id} category={category}/>
                 )}
             </div>
         </div>
