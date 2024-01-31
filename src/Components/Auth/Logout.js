@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { logout } from '../../utils/fetchData'; 
 import { removeUser } from '../Redux/authenticationSlice';
 
@@ -13,18 +15,51 @@ const Logout = () => {
     const handleLogout = () => {
         logout()
             .then(response => {
+                toast.success(`${response.data.message}`, {
+                    position: 'top-right',
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                });
                 dispatch(removeUser());
                 navigate('/');
             })
             .catch(error => {
-                console.log(error);
+                toast.error(`${error.response.data.msg}`, {
+                    position: 'top-right',
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                });
             });
     };
 
     return (
-        <div className={styles.logoutBtnWrapper}>
-            <p className={styles.logoutBtn} onClick={handleLogout}>LOGOUT</p>
-        </div>
+        <>   
+            <div className={styles.logoutBtnWrapper}>
+                <p className={styles.logoutBtn} onClick={handleLogout}>LOGOUT</p>
+            </div>
+            <ToastContainer 
+                position='top-right'
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+            />
+        </>
     );
 };
 
