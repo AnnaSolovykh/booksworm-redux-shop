@@ -79,7 +79,7 @@ export const favoritesSlice = createSlice({
         .addCase(removeFromFavoritesAsync.fulfilled, (state, action) => {
             const removedBook = action.payload;
             state.favoriteItems = state.favoriteItems.filter(
-                (book) => book.id === removedBook
+                (book) => book.id !== removedBook
             );
             state.favoriteItems = [...state.favoriteItems];
         });
