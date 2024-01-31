@@ -1,6 +1,7 @@
 .logoutBtn {
     color: var(--text-black);
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .loginModal {
@@ -102,6 +103,17 @@
 }
 
 @media screen and (max-width: 768px) {
+    .logoutBtnWrapper {
+        display: flex;
+        justify-content: center;
+        margin-left: 40px;
+    }
+    .logoutBtn {
+        color: var(--text-black-hover);
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+    }
     .loginModal {
         width: 80%;
     }

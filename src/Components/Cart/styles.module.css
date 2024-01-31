@@ -3,15 +3,6 @@
     margin: 10px 0;
 }
 
-.quantityNumber {
-    font-weight: 400;
-    font-size: 27px;
-    margin: 0 10px;
-    flex: 1;
-    line-height: 1;
-    vertical-align: center;
-}
-
 .quantityBtn {
     border: none;
     background-color: transparent;
@@ -22,11 +13,23 @@
 }
 
 .symbolQuantityBook {
-    width: 0.8rem;
+    width: 1rem;
+}
+
+.quantityNumberBook, .quantityNumber {
+    font-weight: 400;
+    flex: 1;
+    margin: 0 2px;
+    line-height: 1;
 }
 
 .quantityNumberBook {
-    font-size: 25px;
+    font-size: 30px;
+}
+
+.quantityNumber {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Cart */
@@ -163,6 +166,8 @@
 }
 
 .total {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
     text-align: right;
     margin-right: 30px;
     font-size: 20px;
@@ -172,6 +177,7 @@
 
 .cartPrice {
     font-size: 22px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .cartImageWrapper, .cartPriceWrapper, .cartInner, .cartDeleteWrapper {
@@ -229,12 +235,10 @@
     }
 
     .quantityNumber {
-        margin: 0;
-        font-size: 18px;
+        font-size: 16px;
     }
-
     .symbol {
-        width: 0.7rem;
+        width: 0.8rem;
     }
 
     .icon {

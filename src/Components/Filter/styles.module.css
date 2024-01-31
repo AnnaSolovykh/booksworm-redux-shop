@@ -35,7 +35,7 @@
         cursor: pointer;
         border: 1px solid var(--primary-green);
         background-color: var(--primary-green);
-        margin: 0 40px;
+        margin: 20px;
         color: var(--text-white); 
         font-weight: 700;
         font-size: 18px;
@@ -63,6 +63,7 @@
         text-align: left;
         margin-left: 40px;
         float: left;
+        background-color: var(--background-light-gray); ;
     }
 }
 

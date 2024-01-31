@@ -30,6 +30,12 @@ const Navbar = ({ isMobile, setIsMobile, handleFavoriteClick, totalQuantity, isL
                 </Link>
             </nav>
 
+            <div className={styles.mobileMenuIconWrapper}>
+                <button className={styles.mobileMenuIcon} onClick={() => setIsMobile(!isMobile)}>
+                    {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+                </button>
+            </div>
+
             <div className={styles.container}>
                 <Link to="/" className={styles.h1Default}> <h1>Bookworm</h1></Link> 
                 <Link to="/cart" className={styles.basketLink}> 
@@ -38,9 +44,6 @@ const Navbar = ({ isMobile, setIsMobile, handleFavoriteClick, totalQuantity, isL
                         <span className={styles.linkNumber}>{totalQuantity}</span>
                     </div>
                 </Link>
-                <button className={styles.mobileMenuIcon} onClick={() => setIsMobile(!isMobile)}>
-                    {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
-                </button>
             </div>
         </>
     );

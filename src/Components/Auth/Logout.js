@@ -23,7 +23,7 @@ const Logout = () => {
     };
 
     return (
-        <div>
+        <div className={styles.logoutBtnWrapper}>
             <p className={styles.logoutBtn} onClick={handleLogout}>LOGOUT</p>
         </div>
     );

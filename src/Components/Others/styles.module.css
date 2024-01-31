@@ -19,17 +19,8 @@
     opacity: 0;
 }
 
-@media all and (max-width: 500px) {
-    .presentText {
-        font-size: 12px;
-        margin: 0;
-        width: 60%;
-        text-align: center;
-    }
-    .present {
-        width: 4rem;
-    }
+@media all and (max-width: 950px) {
     .presentBox {
-        height: 10vh;
+        display: none;
     }
 }
