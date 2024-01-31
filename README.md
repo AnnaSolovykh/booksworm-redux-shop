@@ -1,30 +1,33 @@
 # Redux Bookshop Project
 
-This is a website of a shop built with Redux
+Demo: [Bookworm Redux Shop](https://booksworm-redux-shop-git-main-annasolovykh.vercel.app)
 
-Demo: https://booksworm-redux-shop.vercel.app
+## Project Title: Bookworm
 
-On the main page you can first click on the present to get the promo code to decrease the total price in the cart. 
+### Description:
+Bookworm is designed to showcase the integration of Redux with Node.js in creating a full-stack e-commerce solution. 
+<br/>
+For more details about the backend features, [visit backend repository](https://github.com/AnnaSolovykh/bookworm-backend).
 
-Then you can filter the books by its categories, clicking on any of them.
+### Key Features:
 
-<img width="1716" alt="Снимок экрана 2023-02-11 в 11 57 41" src="https://user-images.githubusercontent.com/114008959/218249763-6b22e391-0ec8-46e1-a7f0-be98c8f9bbbd.png">
++ Advanced state management with Redux for filtering books, saving and fetching favorite one.
++ API integration between the frontend and backend, featuring custom user authentication. 
++ Users can access their favorite books, add new ones to their favorites, and delete them as needed.
++ Responsive design ensuring optimal user experience across a variety of devices and screen sizes.
 
-<img width="1698" alt="Снимок экрана 2023-02-11 в 11 57 52" src="https://user-images.githubusercontent.com/114008959/218249765-e9052373-99be-41e5-b122-4ea520a67213.png">
+### Technologies Used:
 
-Clicking on "show more" you can see the extended description of a book.
++ Redux for state management
++ Redux middleware like redux-thunk and redux-persist for asynchronous actions and persistence.
++ Axios for API calls.
++ CSS Modules for scoped and reusable CSS
++ SweetAlert for responsive, and customizable alerts.
++ React-toastify for adding toast notifications.
 
-<img width="1721" alt="Снимок экрана 2023-02-11 в 11 58 40" src="https://user-images.githubusercontent.com/114008959/218249768-ff9c6825-aaea-467a-8d03-cbcfe5593328.png">
+<img width="500" alt="Screenshot 2024-01-31 at 22 23 30" src="https://github.com/AnnaSolovykh/booksworm-redux-shop/assets/114008959/aadb34d0-cc83-4c87-911f-cd54c9405054">
+<img width="500" alt="Screenshot 2024-01-31 at 22 24 12" src="https://github.com/AnnaSolovykh/booksworm-redux-shop/assets/114008959/9d0854b9-9a2a-4b1b-bff0-0f98d0b2fb4a">
+<img width="500" alt="Screenshot 2024-01-31 at 22 26 35" src="https://github.com/AnnaSolovykh/booksworm-redux-shop/assets/114008959/8ca5e63a-6307-480e-8ae5-74b79143de39">
+<img width="500" alt="Screenshot 2024-01-31 at 22 27 03" src="https://github.com/AnnaSolovykh/booksworm-redux-shop/assets/114008959/ede31e80-5254-42d9-8c54-6a744d891ca6">
 
-You can navigate to the cart by clicking the cart icon. There, you can change the number of each book in the cart or delete the whole item.
-
-<img width="1689" alt="Снимок экрана 2023-02-11 в 11 59 13" src="https://user-images.githubusercontent.com/114008959/218249772-33a2afd5-7f8a-40d9-aee2-810e8bc5bc06.png">
-
-Also, you can apply the promo code and reduce the total price.
-
-
-
-<img width="1728" alt="Снимок экрана 2023-02-11 в 11 59 23" src="https://user-images.githubusercontent.com/114008959/218249774-48073f76-f1a5-4ea9-957a-1e3b4f36d738.png">
-
-After mastering in Node.js, authorization and payment methods are to be added.
-
+Feel free to explore the code, and any contributions or feedback are highly welcomed!
