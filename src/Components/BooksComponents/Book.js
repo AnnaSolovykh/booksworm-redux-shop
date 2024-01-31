@@ -82,7 +82,6 @@ const Book = ({book}) => {
             }
         }
     };
-    
 
     useEffect(() => {
         if (!isLoggedIn) {
@@ -91,10 +90,9 @@ const Book = ({book}) => {
             dispatch(fetchIsFavorite(book.id));
         }
     }, [dispatch, book.id, isLoggedIn, isFavorite]);
+
     const cartItems = useSelector( getCartItems  );
-
     const booksInCart = cartItems.some ( item => item.id === book.id);
-
 
     const putToCart = () => {
         if (!booksInCart) {
