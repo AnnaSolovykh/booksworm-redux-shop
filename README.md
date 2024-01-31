@@ -11,7 +11,7 @@ For more details about the backend features, [visit backend repository](https://
 
 ### Key Features:
 
-+ Advanced state management with Redux for filtering books, saving and fetching favorite one.
++ Advanced state management with Redux for filtering books, managing the shopping cart, saving and fetching favorite books.
 + API integration between the frontend and backend, featuring custom user authentication. 
 + Users can access their favorite books, add new ones to their favorites, and delete them as needed.
 + Responsive design ensuring optimal user experience across a variety of devices and screen sizes.
