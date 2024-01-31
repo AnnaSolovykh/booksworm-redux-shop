@@ -65,7 +65,7 @@ export const addBookToFavorites = (book) => {
 
 export const removeBookFromFavorites = (bookId) => {
     //return axios.delete(`http://localhost:4000/api/v1/books/${bookId}`, 
-    return axios.post(`https://anna-solovykh-bookworm.onrender.com/api/v1/books/${bookId}`, 
+    return axios.delete(`https://anna-solovykh-bookworm.onrender.com/api/v1/books/${bookId}`, 
     {
         headers: {
             'Content-Type': 'application/json',
