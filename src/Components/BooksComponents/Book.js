@@ -45,18 +45,44 @@ const Book = ({book}) => {
             return;
         }
         if (isFavorite) {
-            dispatch(removeFromFavoritesAsync(book));
-            dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: false }));
+            if (!isAddingToFavorites) {
+                setIsAddingToFavorites(true);
+                dispatch(removeFromFavoritesAsync(book)).then(() => {
+                    setIsAddingToFavorites(false);
+                    dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: false }));
+                    toast.error('Removed from your favorites!', {
+                        position: 'top-right',
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'light',
+                    });
+                });
+            }
         } else {
             if (!isAddingToFavorites) {
                 setIsAddingToFavorites(true);
                 dispatch(addToFavoritesAsync(book)).then(() => {
                     setIsAddingToFavorites(false);
+                    dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: true }));
+                    toast.success('Added to your favorites!', {
+                        position: 'top-right',
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'light',
+                    });
                 });
-                dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: true }));
             }
         }
     };
+    
 
     useEffect(() => {
         if (!isLoggedIn) {
@@ -99,7 +125,6 @@ const Book = ({book}) => {
             notify();
         }
     };
-
 
     return (
         <>
