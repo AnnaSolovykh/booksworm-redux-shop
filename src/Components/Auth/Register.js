@@ -66,7 +66,6 @@ const Register = () => {
                     <label htmlFor='name'>Name:</label>
                     <input
                         type='text'
-                        id='name'
                         name='name'
                         autoComplete='name'
                         value={name}
@@ -78,7 +77,6 @@ const Register = () => {
                     <label htmlFor='username'>Email:</label>
                     <input
                         type='text'
-                        id='email'
                         name='email'
                         autoComplete='email'
                         value={email}
@@ -90,7 +88,6 @@ const Register = () => {
                     <label htmlFor='password'>Password:</label>
                     <input
                         type='password'
-                        id='password'
                         name='password'
                         autoComplete='new-password'
                         value={password}

@@ -10,7 +10,7 @@ const LoginModal = ({ onClose }) => (
             <FontAwesomeIcon icon={faTimes} />
         </button>
         <p>Please log in to view favorites.</p>
-        <Login onClose={onClose}/>
+        <Login/>
     </div>
 );
 
