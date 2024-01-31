@@ -90,14 +90,14 @@ const Book = ({book}) => {
             dispatch(fetchIsFavorite(book.id));
         }
     }, [dispatch, book.id, isLoggedIn, isFavorite]);
-
+    
     const cartItems = useSelector( getCartItems  );
     const booksInCart = cartItems.some ( item => item.id === book.id);
 
     const putToCart = () => {
         if (!booksInCart) {
             dispatch (addItemToCart ({ book, quantity })); 
-            const notify = () => toast.success('Added to your basket!', {
+            toast.success('Added to your basket!', {
                 position: 'top-right',
                 autoClose: 1000,
                 hideProgressBar: false,
@@ -107,10 +107,9 @@ const Book = ({book}) => {
                 progress: undefined,
                 theme: 'light',
             });
-            notify();
         } else {
             dispatch (updateQuantity ( {book, quantity} ) );
-            const notify = () => toast.success('Added to your basket!', {
+            toast.success('Added to your basket!', {
                 position: 'top-right',
                 autoClose: 1000,
                 hideProgressBar: false,
@@ -120,7 +119,6 @@ const Book = ({book}) => {
                 progress: undefined,
                 theme: 'light',
             });
-            notify();
         }
     };
 
