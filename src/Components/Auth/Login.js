@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import { setUser } from '../Redux/authenticationSlice';
 import { login } from '../../utils/fetchData';
 
 import styles from './styles.module.css';
 
-const Login = () => {
+const Login = ({onClose }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -32,6 +33,7 @@ const Login = () => {
                     navigate('/favorite-books');
                     setEmail('');
                     setPassword('');
+                    onClose();
                 }
             })
             .catch(error => {
@@ -73,6 +75,18 @@ const Login = () => {
                     <Link to='/register'>Register here</Link>
                 </p>
             </form>
+            <ToastContainer 
+                        position='top-right'
+                        autoClose={1000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme='light'
+            />
         </div>
     );
 };
