@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { setUser } from '../Redux/authenticationSlice';
 import { login } from '../../utils/fetchData';
@@ -11,23 +10,20 @@ import styles from './styles.module.css';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState(''); 
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handlePasswordChange = (e) => setPassword(e.target.value);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setErrorMessage('');
         login(email, password)
             .then(response => {
-                if(response.status === 200) {
+                if (response.status === 200) {
                     sessionStorage.setItem('jwtToken', response.data.token);
                     dispatch(setUser(response.data.user));
                     navigate('/favorite-books');
@@ -36,16 +32,7 @@ const Login = () => {
                 }
             })
             .catch(error => {
-                toast.error(`${error.response.data.msg}`, {
-                    position: 'top-right',
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'light',
-                });
+                setErrorMessage(error.response.data.msg || 'An error occurred during login');
             });
     };
 
@@ -81,20 +68,11 @@ const Login = () => {
                         Don't have an account?{' '}
                         <Link to='/register'>Register here</Link>
                     </p>
+                    {errorMessage && (
+                        <p className={styles.errorMessage}>Error: {errorMessage}</p> 
+                    )}
                 </form>
             </div>
-            <ToastContainer 
-                position='top-right'
-                autoClose={1000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme='light'
-            />
         </>
     );
 };

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { register } from '../../utils/fetchData';
 
 import styles from './styles.module.css';
@@ -10,24 +8,17 @@ const Register = () => {
     const [name, setName] = useState(''); 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate();
 
-    const handleNameChange = (e) => {
-        setName(e.target.value);
-    };
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+    const handleNameChange = (e) => setName(e.target.value);
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handlePasswordChange = (e) => setPassword(e.target.value);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        setErrorMessage(''); 
         register(name, email, password)
             .then(response => {
                 if(response.status === 201) {
@@ -38,16 +29,7 @@ const Register = () => {
                 }
             })
             .catch(error => {
-                toast.error(`${error.response.data.msg}`, {
-                    position: 'top-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'light',
-                });
+                setErrorMessage(error.response.data.msg || 'An error occurred during registration');
             });
     };
 
@@ -94,20 +76,11 @@ const Register = () => {
                         Already have an account?{' '}
                         <Link to='/login'>Sign in here</Link>
                     </p>
+                    {errorMessage && (
+                        <p className={styles.errorMessage}>Error: {errorMessage}</p>
+                    )}
                 </form>
             </div>
-            <ToastContainer 
-                position='top-right'
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme='light'
-            />
         </>
     );
 };
