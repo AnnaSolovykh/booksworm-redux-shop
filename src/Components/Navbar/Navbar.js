@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import LoginModal from '../Auth/LoginModal';
 import Logout from '../Auth/Logout';
@@ -9,6 +10,7 @@ import styles from './styles.module.css';
 
 const Navbar = ({ isMobile, setIsMobile, totalQuantity, isLoggedIn }) => {
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const user = useSelector((state) => state.authentication.user);
 
     useEffect(() => {
             if (isLoggedIn) {
@@ -29,7 +31,8 @@ const Navbar = ({ isMobile, setIsMobile, totalQuantity, isLoggedIn }) => {
             <nav 
                 className={isMobile ? styles.navLinksMobile : styles.navLinks} 
                 onClick={() => setIsMobile(false)}
-            >
+            >   
+                {isLoggedIn & !isMobile ? `Welcome ${user.name}!` : ''}
                 <Link to="/" className={`${styles.link} ${styles.linkMobile}`}>HOME</Link>
                 <Link to="/favorite-books" className={`${styles.link} ${styles.linkMobile}`} onClick={handleFavoriteClick}>FAVORITES</Link>
                 {isLoggedIn ? (

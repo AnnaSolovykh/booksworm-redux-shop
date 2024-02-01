@@ -10,7 +10,6 @@ import Loader from '../Others/Loader';
 const FavoriteBooks = () => {
     const dispatch = useDispatch();
     const favoriteBooks = useSelector((state) => state.favorites.favoriteItems);
-    const user = useSelector((state) => state.authentication.user);
     
     const [isLoading, setIsLoading] = useState(true); 
 
@@ -31,7 +30,7 @@ const FavoriteBooks = () => {
 
     return (
         <div className={styles.favoriteBooksWrapper}>
-            <h2>Hi {user.name}, hope you are having a nice day!</h2>
+            <h2>Favorite books</h2>
             {isLoading ? ( 
                 <Loader/>
             ) : (
