@@ -4,49 +4,50 @@ import { getFavorites, addBookToFavorites, removeBookFromFavorites } from '../..
 export const fetchIsFavorite = createAsyncThunk(
     'favorites/fetchIsFavorite',
     async (bookId) => {
-        return getFavorites()
-            .then((response) => {
-                const favorites = response.data.favoriteBooks; 
-                const isFavorite = favorites.some((book) => book.id === bookId);
-                return { bookId, isFavorite };            
-            })
-            .catch((error) => {
-                throw error; 
-            });
+        try {
+            const response = await getFavorites();
+            const favorites = response.data.favoriteBooks;
+            const isFavorite = favorites.some((book) => book.id === bookId);
+            return { bookId, isFavorite };
+        } catch (error) {
+            throw error;
         }
-    );
+    }
+);
 
 export const fetchFavoriteBooksAsync = createAsyncThunk(
-        'favorites/fetchFavoriteBooks',
-        async () => {
+    'favorites/fetchFavoriteBooks',
+    async () => {
+        try {
             const response = await getFavorites();
             return response.data.favoriteBooks;
+        } catch (error) {
+            throw error;
         }
-    );
+    }
+);
 
 export const addToFavoritesAsync = createAsyncThunk(
     'favorites/addBookToFavorites',
     async (book) => {
-        return addBookToFavorites(book)
-            .then((response) => {
-                return response.data; 
-            })
-            .catch((error) => {
-                throw error; 
-            });
+        try {
+            const response = await addBookToFavorites(book);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
     }
 );
 
 export const removeFromFavoritesAsync = createAsyncThunk(
     'favorites/removeBookFromFavorites',
     async (book) => {
-        return removeBookFromFavorites(book.id)
-            .then(() => {
-                return book.id;
-            })
-            .catch((error) => {
-                throw error;
-            });
+        try {
+            await removeBookFromFavorites(book.id);
+            return book.id;
+        } catch (error) {
+            throw error;
+        }
     }
 );
 
