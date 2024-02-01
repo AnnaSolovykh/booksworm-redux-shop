@@ -97,6 +97,17 @@
     transform: scale(1.1);
 }
 
+.successMessage {
+    font-size: x-small;
+    display: inline;
+}
+
+.errorMessage {
+    font-size: x-small;
+    display: inline;
+    color: red;
+}
+
 @media all and (max-width: 950px) {
     .bookImage {
         width: 10rem;  

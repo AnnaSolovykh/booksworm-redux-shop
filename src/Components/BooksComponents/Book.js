@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
@@ -26,6 +25,8 @@ const Book = ({book}) => {
     const [quantity, setQuantity] = useState(1);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [isAddingToFavorites, setIsAddingToFavorites] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const dispatch = useDispatch();
 
@@ -44,42 +45,20 @@ const Book = ({book}) => {
             setShowLoginModal(true); 
             return;
         }
-        if (isFavorite) {
-            if (!isAddingToFavorites) {
-                setIsAddingToFavorites(true);
-                dispatch(removeFromFavoritesAsync(book)).then(() => {
-                    setIsAddingToFavorites(false);
-                    dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: false }));
-                    toast.error('Removed from your favorites!', {
-                        position: 'top-right',
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'light',
-                    });
-                });
-            }
-        } else {
-            if (!isAddingToFavorites) {
-                setIsAddingToFavorites(true);
-                dispatch(addToFavoritesAsync(book)).then(() => {
-                    setIsAddingToFavorites(false);
-                    dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: true }));
-                    toast.success('Added to your favorites!', {
-                        position: 'top-right',
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'light',
-                    });
-                });
-            }
+        if (!isAddingToFavorites) {
+            setIsAddingToFavorites(true);
+            const action = isFavorite ? removeFromFavoritesAsync(book) : addToFavoritesAsync(book);
+
+            dispatch(action).then(() => {
+                setIsAddingToFavorites(false);
+                dispatch(setFavoriteStatus({ bookId: book.id, isFavorite: !isFavorite }));
+                setSuccessMessage(isFavorite ? '' : 'Added to your favorites!');
+                setErrorMessage('');
+            }).catch(() => {
+                setIsAddingToFavorites(false);
+                setErrorMessage('An error occurred. Please try again.');
+                setSuccessMessage(''); 
+            });
         }
     };
 
@@ -97,28 +76,8 @@ const Book = ({book}) => {
     const putToCart = () => {
         if (!booksInCart) {
             dispatch (addItemToCart ({ book, quantity })); 
-            toast.success('Added to your basket!', {
-                position: 'top-right',
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: 'light',
-            });
         } else {
             dispatch (updateQuantity ( {book, quantity} ) );
-            toast.success('Added to your basket!', {
-                position: 'top-right',
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: 'light',
-            });
         }
     };
 
@@ -133,7 +92,7 @@ const Book = ({book}) => {
                     <h2 className={styles.bookName}>{book.name}</h2>
                     <h4 className={styles.bookAuthor}>{book.author}</h4>
                     <h3 className={styles.bookPrice}>$ {book.price}</h3> 
-                    <ChangeQuantity quantity={quantity} setQuantity={setQuantity}/>   
+                    <ChangeQuantity quantity={quantity} setQuantity={setQuantity}/>
                     <button className={styles.addToCartBtn} onClick={putToCart}>Add to cart</button>
                     <button 
                         className={`${styles.toggleFavoriteBtn} ${isAddingToFavorites ? styles.toggleFavoriteBtnClicked : ''}`}
@@ -141,19 +100,9 @@ const Book = ({book}) => {
                     >
                         <FontAwesomeIcon icon={isFavorite ? fasFaHeart : farFaHeart} />
                     </button>
+                    {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
+                    {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}   
                     {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
-                    <ToastContainer 
-                        position='top-right'
-                        autoClose={1000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                        theme='light'
-                    />
                 </div>
             </div>
 
