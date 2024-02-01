@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { setUser } from '../Redux/authenticationSlice';
 import { register } from '../../utils/fetchData';
 
 import styles from './styles.module.css';
@@ -14,7 +12,6 @@ const Register = () => {
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -34,10 +31,7 @@ const Register = () => {
         register(name, email, password)
             .then(response => {
                 if(response.status === 201) {
-                    sessionStorage.setItem('jwtToken', response.data.token);
-                    sessionStorage.setItem('username', response.data.user.name);
-                    dispatch(setUser(response.data.user));
-                    navigate('/favorite-books');
+                    navigate('/login');
                     setName('');
                     setEmail('');
                     setPassword('');
