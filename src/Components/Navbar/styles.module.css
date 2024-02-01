@@ -119,6 +119,7 @@ h1 {
     .mobileMenuIcon {
         display: block;
         font-size: 30px;
+        color: var(--text-black);
         background-color: var(--primary-whtie); 
         border: none;
         outline: none;
