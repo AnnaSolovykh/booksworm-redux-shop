@@ -36,7 +36,7 @@ const Register = () => {
                 if(response.status === 201) {
                     sessionStorage.setItem('jwtToken', response.data.token);
                     sessionStorage.setItem('username', response.data.user.name);
-                    dispatch(setUser(response.data.user.name));
+                    dispatch(setUser(response.data.user));
                     navigate('/favorite-books');
                     setName('');
                     setEmail('');

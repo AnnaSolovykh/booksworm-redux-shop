@@ -31,7 +31,7 @@ const FavoriteBooks = () => {
 
     return (
         <div className={styles.favoriteBooksWrapper}>
-            <h2>Hi {user}, hope you are having a nice day!</h2>
+            <h2>Hi {user.name}, hope you are having a nice day!</h2>
             {isLoading ? ( 
                 <Loader/>
             ) : (
