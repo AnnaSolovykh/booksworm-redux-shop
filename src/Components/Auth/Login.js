@@ -26,7 +26,7 @@ const Login = () => {
                 if (response.status === 200) {
                     sessionStorage.setItem('jwtToken', response.data.token);
                     dispatch(setUser(response.data.user));
-                    navigate('/favorite-books');
+                    navigate('/');
                     setEmail('');
                     setPassword('');
                 }
