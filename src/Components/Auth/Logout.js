@@ -14,19 +14,9 @@ const Logout = () => {
 
     const handleLogout = () => {
         logout()
-            .then(response => {
+            .then(() => {
                 sessionStorage.removeItem('jwtToken');
                 dispatch(removeUser());
-                toast.success(`${response.data.message}`, {
-                    position: 'top-right',
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'light',
-                });
                 navigate('/');
             })
             .catch(error => {
