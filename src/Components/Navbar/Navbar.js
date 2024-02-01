@@ -32,7 +32,7 @@ const Navbar = ({ isMobile, setIsMobile, totalQuantity, isLoggedIn }) => {
                 className={isMobile ? styles.navLinksMobile : styles.navLinks} 
                 onClick={() => setIsMobile(false)}
             >   
-                {isLoggedIn & !isMobile ? `Welcome ${user.name}!` : ''}
+                {isLoggedIn && !isMobile ? `Welcome ${user.name}!` : ''}
                 <Link to="/" className={`${styles.link} ${styles.linkMobile}`}>HOME</Link>
                 <Link to="/favorite-books" className={`${styles.link} ${styles.linkMobile}`} onClick={handleFavoriteClick}>FAVORITES</Link>
                 {isLoggedIn ? (
@@ -49,6 +49,7 @@ const Navbar = ({ isMobile, setIsMobile, totalQuantity, isLoggedIn }) => {
             </nav>
 
             <div className={styles.mobileMenuIconWrapper}>
+                {isLoggedIn && !isMobile ? (<p>Welcome {user.name}!</p>) : ''}
                 <button className={styles.mobileMenuIcon} onClick={() => setIsMobile(!isMobile)}>
                     {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
                 </button>

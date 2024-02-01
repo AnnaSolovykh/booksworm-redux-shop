@@ -56,6 +56,10 @@ h1 {
     display: none;
 }
 
+.mobileMenuIconWrapper p {
+    display: none;
+}
+
 .basketBoxMobile {
     display: none;
 }
@@ -115,6 +119,12 @@ h1 {
         padding: 10px 5px 0 0;
         background-color: var(--background-light-gray); 
     }
+
+    .mobileMenuIconWrapper p {
+        display: inline;
+        margin-right: 10px;
+    }
+    
 
     .mobileMenuIcon {
         display: block;
