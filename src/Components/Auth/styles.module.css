@@ -139,4 +139,7 @@
     .logoutBtn {
         font-size: 15px;
     }
+    .loginModal {
+        width: 85%;
+    }
 }
